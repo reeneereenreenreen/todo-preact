@@ -1,5 +1,6 @@
 @layer me.settings {
   :root {
+      --color-primary: #59c832;
     	--color-text: #222;
 	    --color-background: #ddd;
       --color-danger: #e53e3e;

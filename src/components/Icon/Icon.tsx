@@ -53,6 +53,13 @@ const Icon: FunctionComponent<IconProps> = ({
         <polyline points="6 9 12 15 18 9"/>
       </svg>
     ),
+    'dots-vertical': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="5" r="1.5"/>
+        <circle cx="12" cy="12" r="1.5"/>
+        <circle cx="12" cy="19" r="1.5"/>
+      </svg>
+    ),
   //   edit: (
   //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   //       <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>

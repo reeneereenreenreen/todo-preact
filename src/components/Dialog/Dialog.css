@@ -1,0 +1,121 @@
+@layer me.component {
+    .dialog {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: min(90vw, 500px);
+  max-height: 90vh;
+  overflow: hidden;
+  background: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.dialog.sm { max-width: 320px; }
+.dialog.md { max-width: 450px; }
+.dialog.lg { max-width: 600px; }
+.dialog.xl { max-width: 800px; }
+
+.dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.dialog-content {
+  position: relative;
+  background: white;
+  color: #111827;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 0;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.dialog-close {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-close:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.dialog-close:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dialog-body {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dialog-content {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .dialog-close:hover {
+    background: #374151;
+    color: #f9fafb;
+  }
+}
+
+/* Scrollbar styling */
+.dialog-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dialog-body::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dialog-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.dialog[open] {
+  animation: dialogSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+}

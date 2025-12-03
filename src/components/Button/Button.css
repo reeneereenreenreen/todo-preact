@@ -20,6 +20,11 @@
         border-color: transparent;
     }
 
+    .button--primary {
+        /* --button-hover-color: var(--color-primary); */
+        --button-hover-bg: var(--color-primary);
+    }
+
     .button--danger {
         --button-hover-bg: var(--color-danger);
     }

@@ -72,7 +72,7 @@ const TodoList: FunctionComponent = () => {
         <h2 class="todo-list__title">My Todo List</h2>
 
         <TodoSection
-          title={`Todo`}
+          title={`Open`}
           count={activeTodos.length}
           todos={activeTodos}
           editingId={editingId}
