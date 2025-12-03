@@ -26,16 +26,20 @@ const TodoList: FunctionComponent = () => {
   }, [todos]);
 
   const addTodo = (text: string) => {
+    console.log('Added todo', text);
     setTodos([{ id: crypto.randomUUID(), text, completed: false }, ...todos]);
   };
 
   const toggleTodo = (id: string) => {
+    console.log('Updated todo', id);
+
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
 
   const deleteTodo = (id: string) => {
+    console.log('Deleted todo', id);
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
@@ -45,6 +49,8 @@ const TodoList: FunctionComponent = () => {
   };
 
   const updateTodo = (id: string, text: string) => {
+
+
     if (!text.trim()) {
       deleteTodo(id);
       return;
@@ -54,6 +60,7 @@ const TodoList: FunctionComponent = () => {
     ));
     setEditingId(null);
     setEditText('');
+
   };
 
   const activeTodos = todos.filter(t => !t.completed);

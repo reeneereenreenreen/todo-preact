@@ -1,19 +1,39 @@
 @layer me.component {
     .todo-form {
         display: flex;
-        margin-block: 0.5rem;
+        margin-bottom: 2rem;
     }
 
-    .field {
+    .field-group {
+        display: flex;
+        gap: 0.5rem;
+        opacity: 0.75;
+        width: 100%;
+        border: 2px solid var(--color-text);
+        border-radius: 2rem;
+        corner-shape: squircle;
+
+        &:hover,
+        &:focus-within {
+            opacity: 1;
+        }
+    }
+
+    .field--text {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-    }
+        width: 100%;
 
-    .field__input {
-        height: 100%;
-        color: var(--color-text);
-        background-color: transparent;
-        border-width: 0 0 1px;
+        .field__input {
+            width: stretch;
+            height: 100%;
+            color: var(--color-text);
+            background-color: transparent;
+            border: 0;
+            border-radius: 2rem;
+            corner-shape: squircle;
+            padding: 0.5rem 1rem;
+        }
     }
 }

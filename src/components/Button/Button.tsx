@@ -4,27 +4,37 @@ import { Icon } from '../Icon'
 
 type ButtonProps = {
     // @todo add aria-label support
+    type?: 'button' | 'submit' | 'reset'
     label?: string
     icon?: string
+    ariaLabel?: string
+    disabled?: boolean
     onClick?: () => void
-    variant?: 'primary' | 'secondary' | 'ghost'
+    variant?: 'primary' | 'secondary' | 'danger'
+    appearance?: 'filled' | 'outlined'  | 'ghost'
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
+    type = 'button',
     label,
     icon,
+    ariaLabel,
+    disabled,
+    appearance = 'filled',
     onClick,
         variant = 'primary',
     }) => {
 
     return (
         <button
-            className={`button button--${variant}`}
-            type="button"
+            className={`button button--${variant} button--${appearance}`}
+            aria-label={ariaLabel}
+            disabled={disabled}
+            type={type}
             onClick={onClick}
             >
             {label}
-            <Icon name={icon} />
+            {icon && <Icon name={icon} />}
         </button>
     )
 }

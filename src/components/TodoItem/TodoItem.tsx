@@ -80,7 +80,8 @@ const TodoItem: FunctionComponent<Props> = ({
 			<Button
         icon="trash"
 				onClick={onDelete}
-				variant="ghost"
+				variant="danger"
+        appearance="ghost"
 				/>
     </li>
   );

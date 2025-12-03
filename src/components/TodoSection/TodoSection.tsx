@@ -3,6 +3,7 @@ import { h, FunctionComponent } from 'preact';
 import { TodoItem } from '@components/TodoItem';
 import { Badge } from '@components/Badge';
 import './TodoSection.css';
+import { Icon } from '../Icon';
 
 interface Todo {
   id: string;
@@ -25,11 +26,18 @@ interface Props {
 
 const TodoSection: FunctionComponent<Props> = (props) => {
   return (
-    <div
+    <details
       class="todo-section"
+      open
       // onDragOver={(e) => e.preventDefault()}
     >
-      <h3 class="todo-section__title">{props.title} <Badge label={String(props.count)} /></h3>
+      <summary class="todo-section__header">
+        <span class="todo-section__title">
+          {props.title}
+          <Badge label={String(props.count)} />
+        </span>
+        <Icon name="chevron-down" />
+      </summary>
 
       <ul class="todo-section__items">
         {props.todos.map(todo => (
@@ -46,7 +54,7 @@ const TodoSection: FunctionComponent<Props> = (props) => {
           />
         ))}
       </ul>
-    </div>
+    </details>
   );
 };
 

@@ -3,6 +3,8 @@ import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 import './TodoForm.css';
 
+import { Button } from '@components/Button';
+
 interface Props {
   onAdd: (text: string) => void;
   disabled?: boolean;
@@ -14,6 +16,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
+
     if (input.trim()) {
       onAdd(input);
       setInput('');
@@ -22,20 +25,31 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
 
   return (
     <form onSubmit={handleSubmit} class="todo-form">
-      <div class="field">
-        <label for="todo-input" class="field__label sr-only">Add a new todo</label>
-        <input
-          id="todo-input"
-          class="field__input"
-          value={input}
-          onInput={(e: any) => setInput(e.target.value)}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
+      <div class="field-group">
+        <div class="field field--text">
+          <label for="todo-input" class="field__label sr-only">Add a new todo</label>
+          <input
+            id="todo-input"
+            class="field__input"
+            value={input}
+            onInput={(e: any) => setInput(e.target.value)}
+            placeholder={placeholder}
+            disabled={disabled}
+          />
+        </div>
+        {/* <button type="submit" aria-label="Add to todo list" disabled={!input.trim() || disabled}>
+          +
+        </button> */}
+
+        <Button
+          icon="plus"
+          type="submit"
+          ariaLabel="Add to todo list"
+          disabled={!input.trim() || disabled}
+          variant="danger"
+          appearance="ghost"
+          />
       </div>
-      <button type="submit" aria-label="Add to todo list" disabled={!input.trim() || disabled}>
-        +
-      </button>
     </form>
   );
 };

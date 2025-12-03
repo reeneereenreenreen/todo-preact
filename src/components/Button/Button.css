@@ -18,7 +18,9 @@
     .button--ghost {
         background-color: transparent;
         border-color: transparent;
+    }
 
-        --button-hover-bg: red;
+    .button--danger {
+        --button-hover-bg: var(--color-danger);
     }
 }

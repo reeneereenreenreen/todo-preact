@@ -42,6 +42,17 @@ const Icon: FunctionComponent<IconProps> = ({
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     ),
+    plus: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+    ),
+    'chevron-down': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    ),
   //   edit: (
   //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   //       <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>

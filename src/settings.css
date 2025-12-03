@@ -2,6 +2,7 @@
   :root {
     	--color-text: #222;
 	    --color-background: #ddd;
+      --color-danger: #e53e3e;
 
       --color-foo: #eee;
       --color-bar: #f0f0f0;

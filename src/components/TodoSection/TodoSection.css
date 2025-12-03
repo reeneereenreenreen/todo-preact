@@ -2,11 +2,53 @@
     .todo-section {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-
 
         &:not(:has(.todo-item)) {
             display: none;
+        }
+
+        &:open .todo-section__header .icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    .todo-section__header {
+        position: sticky;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 1rem 2.125rem 1rem 1rem;
+        cursor: pointer;
+        top: 4.25rem;
+        background-color: var(--color-foo);
+        z-index: 10;
+        margin-inline: -1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -0.125rem 0.25rem;
+            z-index: -1;
+            background-color: var(--color-bar);
+            border-radius: 1.75rem;
+            corner-shape: squircle;
+            opacity: 0;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0.5;
+            }
+
+            .icon {
+                opacity: 1;
+            }
+        }
+
+        .icon {
+            opacity: 0;
         }
     }
 
