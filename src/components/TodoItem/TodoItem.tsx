@@ -3,6 +3,8 @@ import { h, FunctionComponent } from 'preact';
 import './TodoItem.css';
 
 import { Button } from '@components/Button';
+import { Icon } from '@components/Icon';
+// import Icon from '@components/Icon'; // default export
 
 interface Todo {
   id: string;
@@ -45,7 +47,14 @@ const TodoItem: FunctionComponent<Props> = ({
           disabled={isEditing}
           class="field__control"
         />
-        <label for={`todo-${todo.id}`} class="field__label"> {section === 'done' ? 'Not done' : 'Make it done'}</label>
+        <label for={`todo-${todo.id}`} class="field__label">
+          <span class="field__icon">
+            <Icon name="check" />
+          </span>
+          <span class="sr-only">
+            {section === 'done' ? 'Not done' : 'Make it done'}
+          </span>
+        </label>
       </div>
       {isEditing ? (
         <input
@@ -68,14 +77,11 @@ const TodoItem: FunctionComponent<Props> = ({
       )}
       {/* <button class="button button--ghost button--delete" onClick={onDelete}>×</button> */}
 
-
 			<Button
-				label="×"
+        icon="trash"
 				onClick={onDelete}
 				variant="ghost"
 				/>
-
-
     </li>
   );
 };

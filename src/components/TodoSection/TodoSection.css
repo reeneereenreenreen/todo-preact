@@ -1,8 +1,19 @@
 @layer me.component {
     .todo-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+
         &:not(:has(.todo-item)) {
             display: none;
         }
+    }
+
+    .todo-section__title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .todo-section__items {
