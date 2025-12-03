@@ -21,7 +21,7 @@
         gap: 0.5rem;
         padding: 1rem 2.125rem 1rem 1rem;
         cursor: pointer;
-        top: 4.25rem;
+        top: var(--header-height);
         background-color: var(--color-foo);
         z-index: 10;
         margin-inline: -1rem;

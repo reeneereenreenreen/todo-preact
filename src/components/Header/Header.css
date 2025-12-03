@@ -14,6 +14,29 @@
         width: calc(100% - 2rem);
         max-width: var(--todo-list-width);
         margin-inline: auto;
-        padding-block: 1rem;
+        /* padding-block: 1rem; */
+        height: var(--header-height);
+    }
+
+    /* @todo verschieben */
+    .real-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 3rem;
+    padding: 0.5rem;
+    aspect-ratio: 1;
+    background-color: #59c832;
+    border-radius: 3rem;
+    corner-shape: squircle;
+    /* padding: 0rem; */
+    color: var(--color-background);
+    background-image: linear-gradient(125deg, #ffffff8f, transparent);
+    box-shadow: inset 1px 1px 0 0px #FFf;
+
+        .icon {
+                filter: drop-shadow(0px 1px 0px #fff);
+        }
     }
 }

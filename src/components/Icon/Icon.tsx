@@ -5,12 +5,12 @@ import './Icon.css';
 
 interface IconProps extends SVGAttributes<SVGSVGElement> {
   name: string;
-  size?: number | string;
+  size?: string;
 }
 
 const Icon: FunctionComponent<IconProps> = ({
   name,
-  // size = 24,
+  size = 'md',
   // color = 'currentColor',
   // class: className,
   ...props
@@ -100,7 +100,7 @@ const Icon: FunctionComponent<IconProps> = ({
 
   // FIXED: Render directly, don't use as component
   return (
-    <span class={`icon icon-${name}`} role="img" aria-hidden="true">
+    <span class={`icon icon-${name} icon-${size}`} role="img" aria-hidden="true">
       {CurrentIcon}
     </span>
   );
