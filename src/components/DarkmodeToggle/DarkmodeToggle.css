@@ -1,0 +1,46 @@
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.theme-toggle.dark {
+  background: #4a5568;
+}
+
+.slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.3s;
+}
+
+.theme-toggle.dark .slider {
+  transform: translateX(30px);
+  background: #1a202c;
+}
+
+.sun, .moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.sun { left: 8px; opacity: 1; }
+.moon { right: 8px; opacity: 0; }
+.theme-toggle.dark .sun { opacity: 0; }
+.theme-toggle.dark .moon { opacity: 1; }

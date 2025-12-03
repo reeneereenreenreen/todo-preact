@@ -1,0 +1,23 @@
+@layer me.settings {
+  :root {
+    	--color-text: #222;
+	    --color-background: #ddd;
+
+      --color-foo: #eee;
+      --color-bar: #f0f0f0;
+      --color-blubb: #fff;
+
+      --todo-list-width: 60rem;
+
+      --transition-duration: 0.3s;
+  }
+
+  [data-theme="dark"] {
+    --color-text: #ccc;
+    --color-background: #1a1a1a;
+
+    --color-foo: #222;
+    --color-bar: #333;
+    --color-blubb: #555;
+  }
+}

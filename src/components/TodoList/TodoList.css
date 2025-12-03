@@ -1,0 +1,38 @@
+@layer me.component {
+    .todo-list {
+    align-items: center;
+    width: calc(100% - 2rem);
+    max-width: var(--todo-list-width);
+    margin-inline: auto;
+    padding: 1px;
+    background-color: var(--color-bar);
+    border-radius: 2rem;
+    corner-shape: squircle;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, .2);
+    background-image: linear-gradient(90deg, transparent, var(--color-blubb), transparent);
+
+        /* &::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            width: 80%;
+            background-image: linear-gradient(90deg, transparent, #d7c7c3, transparent);
+            height: 1px;
+            left: 10%;
+        } */
+    }
+
+    .todo-list__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 1rem 0.5rem;
+        background-color: var(--color-foo);
+        border-radius: inherit;
+        corner-shape: inherit;
+    }
+
+    /* .todo-list__title {
+        margin-bottom: 1rem;
+    } */
+}

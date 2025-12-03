@@ -1,0 +1,13 @@
+@layer me.component {
+    .todo-section {
+        &:not(:has(.todo-item)) {
+            display: none;
+        }
+    }
+
+    .todo-section__items {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}

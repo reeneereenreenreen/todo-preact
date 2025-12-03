@@ -1,0 +1,19 @@
+@layer me.component {
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--color-background);
+    }
+
+    .header__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: calc(100% - 2rem);
+        max-width: var(--todo-list-width);
+        margin-inline: auto;
+        padding-block: 1rem;
+    }
+}

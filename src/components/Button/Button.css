@@ -1,0 +1,24 @@
+@layer me.component {
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 2rem;
+        corner-shape: squircle;
+        color: var(--color-text);
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--button-hover-bg, #e2e8f0);
+        }
+    }
+
+    .button--ghost {
+        background-color: transparent;
+        border-color: transparent;
+
+        --button-hover-bg: red;
+    }
+}

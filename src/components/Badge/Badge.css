@@ -1,0 +1,5 @@
+@layer me.component {
+    .badge {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,19 @@
+@layer me.component {
+    .todo-form {
+        display: flex;
+        margin-block: 0.5rem;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .field__input {
+        height: 100%;
+        color: var(--color-text);
+        background-color: transparent;
+        border-width: 0 0 1px;
+    }
+}
