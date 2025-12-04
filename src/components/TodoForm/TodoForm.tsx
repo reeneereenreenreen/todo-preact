@@ -36,6 +36,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
             id="todo-input"
             class="field__input"
             value={input}
+            autocomplete="off"
             onInput={(e: any) => setInput(e.target.value)}
             placeholder={placeholder}
             disabled={disabled}
@@ -53,33 +54,25 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           variant="primary"
           appearance="ghost"
           />
+        <Button
+          icon="dots-vertical"
+          ariaLabel="oPEN Menu"
+          variant="primary"
+          appearance="ghost"
+          onClick={() => setIsOpen(true)}
+        />
       </div>
 
 
-                <Button
-                    icon="dots-vertical"
-                    ariaLabel="oPEN Menu"
-                    variant="primary"
-                    appearance="ghost"
-                    onClick={() => setIsOpen(true)}
-                />
+
 
       <Dialog
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title="Dialog Title"
+        title="Preferences"
         size="lg"
         // initiallyFocused="name-input"
       >
-        <form>
-                      <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              style={{ padding: '0.5rem 1rem' }}
-            >
-              Cancel
-            </button>
-        </form>
         <DarkmodeToggle />
         <ColorPicker />
       </Dialog>

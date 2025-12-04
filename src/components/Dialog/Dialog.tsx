@@ -3,13 +3,14 @@ import { h, FunctionComponent, RefObject } from 'preact';
 import { useRef, useEffect, useCallback } from 'preact/hooks';
 import Icon from '../Icon/Icon';
 import './Dialog.css';
+import { Button } from '../Button';
 
 interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
   children: preact.ComponentChildren;
-  closeOnBackdrop?: boolean;
+  // closeOnBackdrop?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   initiallyFocused?: string; // ID of element to focus when opened
 }
@@ -19,12 +20,12 @@ const Dialog: FunctionComponent<DialogProps> = ({
   onClose,
   title,
   children,
-  closeOnBackdrop = true,
+  // closeOnBackdrop = true,
   size = 'md',
   initiallyFocused
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const backdropRef = useRef<HTMLDivElement>(null);
+  // const backdropRef = useRef<HTMLDivElement>(null);
 
   // Sync isOpen state with native dialog
   useEffect(() => {
@@ -79,11 +80,11 @@ const Dialog: FunctionComponent<DialogProps> = ({
   }, [onClose]);
 
   // Close on backdrop click
-  const handleBackdropClick = useCallback((e: MouseEvent) => {
-    if (e.target === backdropRef.current && closeOnBackdrop) {
-      onClose();
-    }
-  }, [closeOnBackdrop, onClose]);
+  // const handleBackdropClick = useCallback((e: MouseEvent) => {
+  //   if (e.target === backdropRef.current && closeOnBackdrop) {
+  //     onClose();
+  //   }
+  // }, [closeOnBackdrop, onClose]);
 
   return (
     <dialog
@@ -97,23 +98,23 @@ const Dialog: FunctionComponent<DialogProps> = ({
       aria-describedby="dialog-description"
     >
       {/* Backdrop for click handling */}
-      <div
+      {/* <div
         ref={backdropRef}
         class="dialog-backdrop"
         onClick={handleBackdropClick}
-      />
+      /> */}
 
       <div class="dialog-content">
         {title && (
           <div class="dialog-header">
             <h2 id="dialog-title">{title}</h2>
-            <button
-              class="dialog-close"
+            <Button
+              icon="close"
+              ariaLabel="Close dialog"
+              variant="primary"
+              appearance="ghost"
               onClick={onClose}
-              aria-label="Close dialog"
-            >
-              <Icon name="close" size={20} />
-            </button>
+            />
           </div>
         )}
 

@@ -25,19 +25,30 @@
             display: none;
         }
 
-        &:open .todo-section__header .icon {
-            transform: rotate(180deg);
-        }
     }
 
     .todo-section__content {
-        display: flex;
-        flex-direction: column;
+        /* display: flex; */
+        /* flex-direction: column; */
         /* gap: 1rem; */
         padding: 2rem;
         background-color: var(--color-foo);
         border-radius: inherit;
         corner-shape: inherit;
+
+                &:open .todo-section__header .icon {
+            transform: rotate(180deg);
+        }
+
+        &::details-content {
+            block-size: 0;
+            overflow-y: clip;
+            transition: content-visibility .3s allow-discrete, block-size .3s;
+        }
+
+        &[open]::details-content {
+            block-size: auto;
+        }
     }
 
     .todo-section__header {

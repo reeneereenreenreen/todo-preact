@@ -1,3 +1,8 @@
+:root {
+    interpolate-size: allow-keywords;
+  }
+
+
 @layer me.reset {
     /*
     Modern CSS Reset
@@ -10,13 +15,16 @@
     }
 
     /* 2. Remove default margin */
-    * {
+    *:where() {
     margin: 0;
     }
 
     /* 3. Enable keyword animations */
     html {
-    interpolate-size: allow-keywords;
+        @media (prefers-reduced-motion: no-preference) {
+            interpolate-size: allow-keywords;
+        }
+        /* interpolate-size: allow-keywords; */
     }
 
     body {
@@ -48,10 +56,5 @@
     }
     h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
-    }
-
-    /* 10. Create a root stacking context */
-    #root, #__next {
-    isolation: isolate;
     }
 }

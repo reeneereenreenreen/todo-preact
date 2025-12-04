@@ -9,8 +9,10 @@
 		font-weight: 400;
 
 		color: var(--color-text);
-		background-color: var(--color-primary);
-		background-image: linear-gradient(0deg, #2e2e2ef2 0%, var(--color-background) 100%);
+		/* background-color: var(--color-primary); */
+		background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background) 90%);
+		/* background-image: linear-gradient(0deg, #2e2e2ef2 0%, var(--color-background) 100%); */
+
     	background-attachment: fixed;
 
 		font-synthesis: none;

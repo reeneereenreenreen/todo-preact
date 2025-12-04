@@ -10,7 +10,8 @@
         opacity: 0.75;
         width: 100%;
         padding: 0.125rem;
-        border: 2px solid var(--color-text);
+        background-color: var(--color-foo);
+        border: 1px solid var(--color-text);
         border-radius: 2rem;
         corner-shape: squircle;
 
