@@ -15,7 +15,7 @@ const Badge: FunctionComponent<BadgeProps> = ({
         <span
             className={`badge badge--${variant}`}
             >
-            {label}
+            <span className="badge__label">{label}</span>
         </span>
     )
 }

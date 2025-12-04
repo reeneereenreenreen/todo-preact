@@ -9,7 +9,13 @@
     justify-content: center;
     border-radius: 5rem;
     /* corner-shape: squircle; */
-    background-color: var(--color-blubb);
+    background-color: var(--color-primary);
     font-size: 0.75em;
+
+    .badge__label {
+        color: var(--color-primary);
+        filter: invert(1) grayscale(1) brightness(1.3) contrast(9000);
+        mix-blend-mode: luminosity;
+        }
     }
 }

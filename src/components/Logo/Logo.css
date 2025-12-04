@@ -1,7 +1,6 @@
 @layer me.component {
     .logo {
         display: flex;
-        /* flex-direction: column; */
         align-items: baseline;
         gap: 0.5rem;
         margin: 0.5rem;
@@ -11,16 +10,29 @@
         line-height: 1;
     }
 
-    /* .logo__the {
-        font-size: 0.5em;
-    }
-
     .logo__todo {
-    }
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 0.5rem;
+        aspect-ratio: 1;
+        background-color: var(--color-primary);
+        background-image: linear-gradient(45deg, #00000054, transparent);
+        border-radius: 3rem;
+        corner-shape: squircle;
+        color: var(--color-background);
 
-    .logo__list {
-        font-size: .75em;
-        text-transform: uppercase;
-        margin-top: -.125em;
-    } */
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0.125rem;
+            right: 10%;
+            left: 10%;
+            height: 1px;
+            background-image: linear-gradient(90deg, transparent, #fff, transparent);
+            opacity: 0.6;
+        }
+    }
 }

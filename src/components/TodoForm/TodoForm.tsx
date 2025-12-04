@@ -4,6 +4,9 @@ import { useState } from 'preact/hooks';
 import './TodoForm.css';
 
 import { Button } from '@components/Button';
+import { Dialog } from '@components/Dialog';
+import { DarkmodeToggle } from '@components/DarkmodeToggle';
+import { ColorPicker } from '@components/ColorPicker';
 
 interface Props {
   onAdd: (text: string) => void;
@@ -13,6 +16,7 @@ interface Props {
 
 const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Add new todo..." }) => {
   const [input, setInput] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
@@ -46,10 +50,42 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           type="submit"
           ariaLabel="Add to todo list"
           disabled={!input.trim() || disabled}
-          variant="danger"
+          variant="primary"
           appearance="ghost"
           />
       </div>
+
+
+                <Button
+                    icon="dots-vertical"
+                    ariaLabel="oPEN Menu"
+                    variant="primary"
+                    appearance="ghost"
+                    onClick={() => setIsOpen(true)}
+                />
+
+      <Dialog
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Dialog Title"
+        size="lg"
+        // initiallyFocused="name-input"
+      >
+        <form>
+                      <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              style={{ padding: '0.5rem 1rem' }}
+            >
+              Cancel
+            </button>
+        </form>
+        <DarkmodeToggle />
+        <ColorPicker />
+      </Dialog>
+
+
+
     </form>
   );
 };

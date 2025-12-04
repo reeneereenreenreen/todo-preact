@@ -1,12 +1,31 @@
 @layer me.component {
     .header {
-        position: sticky;
-        top: 0;
+        /* position: sticky;
+        top: 0; */
         z-index: 20;
-        background-color: var(--color-background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        /* background-color: var(--color-background); */
+
+            /* background-image: linear-gradient(45deg, #2e2e2ef2 0%, #1a1a1a66 100%);
+        backdrop-filter: blur(1rem);
+            box-shadow: 0 0 2rem rgba(0, 0, 0, .1); */
+
+        /* &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(to right, transparent, var(--color-text), transparent);
+            opacity: 0.2;
+        } */
     }
 
-    .header__content {
+    /* .header__content {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -14,30 +33,7 @@
         width: calc(100% - 2rem);
         max-width: var(--todo-list-width);
         margin-inline: auto;
-        /* padding-block: 1rem; */
+        padding-inline: 2.125rem;
         height: var(--header-height);
-    }
-
-    /* @todo verschieben */
-    .real-logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 3rem;
-    padding: 0.5rem;
-    aspect-ratio: 1;
-    background-color: var(--color-primary);
-    border-radius: 3rem;
-    corner-shape: squircle;
-    /* padding: 0rem; */
-    color: var(--color-background);
-    background-image: linear-gradient(125deg, #ffffff8f, transparent);
-    box-shadow: inset 1px 1px 0 0px #FFf;
-        transform: rotate(-5deg);
-
-        .icon {
-                filter: drop-shadow(0px 1px 0px #fff);
-        }
-    }
+    } */
 }

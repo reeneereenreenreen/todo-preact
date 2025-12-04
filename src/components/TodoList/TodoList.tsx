@@ -71,6 +71,12 @@ const TodoList: FunctionComponent = () => {
       <div class="todo-list__content">
         <h2 class="todo-list__title">My Todo List</h2>
 
+        <TodoForm
+          onAdd={addTodo}
+          disabled={!!editingId}
+          placeholder="A new todo..."
+        />
+
         <TodoSection
           title={`Open`}
           count={activeTodos.length}
@@ -84,11 +90,7 @@ const TodoList: FunctionComponent = () => {
           section="todo"
         />
 
-        <TodoForm
-          onAdd={addTodo}
-          disabled={!!editingId}
-          placeholder="A new todo..."
-        />
+
 
         <TodoSection
           title={`Done`}
