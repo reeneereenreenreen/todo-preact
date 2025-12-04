@@ -55,10 +55,9 @@ const TodoItem: FunctionComponent<Props> = ({
         </label>
       </div>
       <span
+        class={`todo-item__text ${todo.completed ? 'completed' : ''}`}
         contentEditable
-        suppressContentEditableWarning
         autoFocus={isEditing}
-        class={todo.completed ? 'completed' : ''}
         onBlur={(e: any) => onUpdate(e.target.innerText)}
         onKeyDown={(e: any) => {
           if (e.key === 'Enter') {
@@ -74,6 +73,7 @@ const TodoItem: FunctionComponent<Props> = ({
       </span>
       <Button
         icon="trash"
+        ariaLabel="Delete todo"
         onClick={onDelete}
         variant="danger"
         appearance="ghost"

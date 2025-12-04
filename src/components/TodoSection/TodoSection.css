@@ -69,6 +69,7 @@
         background-color: var(--color-foo);
         z-index: 10;
         margin-inline: -1rem;
+        transition: var(--transition-fast);
 
         &::before {
             content: '';
@@ -89,6 +90,10 @@
             .icon {
                 opacity: 1;
             }
+        }
+
+        &:active {
+            transform: scale3d(0.99, 0.95, 1);
         }
 
         .icon {

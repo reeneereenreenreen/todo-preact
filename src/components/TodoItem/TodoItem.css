@@ -8,33 +8,34 @@
         gap: 0.5rem;
         padding-block: 0.5rem;
 
-        &:not(:last-child) {
-            border-bottom: 1px solid var(--color-bar);
-        }
+        /* &:not(:last-child) {
+            border-bottom: 1px solid var(--color-descent-300);
+        } */
 
         &::before {
             content: '';
             position: absolute;
             inset: -0.125rem -0.75rem;
             z-index: -1;
-            background-color: var(--color-bar);
+            background-color: var(--color-descent-100);
             border-radius: 1.75rem;
             corner-shape: squircle;
             opacity: 0;
-            /* transform: scale(0.85);
-            transition: calc(var(--transition-duration) / 2); */
         }
 
         &:hover {
             &::before {
                 opacity: 1;
-                /* transform: scale(1); */
             }
         }
 
         .button {
             margin-inline-start: auto;
         }
+    }
+
+    .todo-item__text {
+        outline: 0;
     }
 
     /* @todo als einzelne Componente auslagern */
@@ -48,7 +49,6 @@
                 + .field__label {
                     .field__icon {
                         background-color: var(--color-text);
-                        /* box-shadow: inset 0 0 0 6px #f0ece4; */
                     }
 
                     .icon {
@@ -59,10 +59,19 @@
                     &:hover {
                         & .field__icon {
                             background-color: var(--color-primary);
+                        }
+                    }
+                }
+            }
 
-                            /* .icon {
-                                opacity: 0.1;
-                            } */
+            &:focus {
+                + .field__label {
+                    .field__icon {
+                        border-color: var(--color-primary);
+                        opacity: 1;
+
+                        .icon {
+                            opacity: 0.5;
                         }
                     }
                 }
@@ -71,7 +80,7 @@
 
         .field__label {
             &:hover {
-                & .field__icon {
+                .field__icon {
                     border-color: var(--color-primary);
                     opacity: 1;
 

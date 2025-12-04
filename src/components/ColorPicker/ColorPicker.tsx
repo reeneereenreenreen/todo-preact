@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import './ColorPicker.css';
+import { Icon } from '../Icon';
 
 const defaultColors = [
     '#ef4444', // red
@@ -37,24 +38,23 @@ const ColorPicker: FunctionComponent<ColorPickerProps> = ({
     return (
         <div class="color-picker">
             <h3 class="color-picker__title">Primary Color</h3>
-            <div class="color-picker__items">
+            <ul class="color-picker__items">
                 {colors.map((color) => (
-                    <button
-                        key={color}
-                        onClick={() => setSelectedColor(color)}
-                        aria-label={`Select color ${color}`}
-                        style={{
-                            backgroundColor: color,
-                            border: color === selectedColor ? '3px solid var(--color-primary)' : '2px solid #ddd',
-                            borderRadius: '50%',
-                            width: '40px',
-                            height: '40px',
-                            cursor: 'pointer',
-                            outline: 'none',
-                        }}
-                    />
+                    <li class="color-picker__item">
+                        <button
+                            key={color}
+                            onClick={() => setSelectedColor(color)}
+                            aria-label={`Select color ${color}`}
+                            class={`color-picker__button${color === selectedColor ? ' is-selected' : ''}`}
+                            style={{
+                                backgroundColor: color,
+                            }}
+                        >
+                            <Icon name="check" />
+                        </button>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

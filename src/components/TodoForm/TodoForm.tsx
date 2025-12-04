@@ -7,6 +7,7 @@ import { Button } from '@components/Button';
 import { Dialog } from '@components/Dialog';
 import { DarkmodeToggle } from '@components/DarkmodeToggle';
 import { ColorPicker } from '@components/ColorPicker';
+import { Icon } from '../Icon';
 
 interface Props {
   onAdd: (text: string) => void;
@@ -31,7 +32,9 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
     <form onSubmit={handleSubmit} class="todo-form">
       <div class="field-group">
         <div class="field field--text">
-          <label for="todo-input" class="field__label sr-only">Add a new todo</label>
+          <label for="todo-input" class="field__label" aria-label="Add a new todo">
+            <Icon name="plus" />
+          </label>
           <input
             id="todo-input"
             type="text"
@@ -48,7 +51,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
         </button> */}
 
         <Button
-          icon="plus"
+          icon="enter"
           type="submit"
           ariaLabel="Add to todo list"
           disabled={!input.trim() || disabled}
@@ -57,29 +60,24 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           />
         <Button
           icon="dots-vertical"
-          ariaLabel="oPEN Menu"
+          ariaLabel="Open Menu"
           variant="primary"
           appearance="ghost"
           onClick={() => setIsOpen(true)}
         />
       </div>
 
-
-
-
       <Dialog
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         title="Preferences"
+        icon="preferences"
         size="lg"
         // initiallyFocused="name-input"
       >
         <DarkmodeToggle />
         <ColorPicker />
       </Dialog>
-
-
-
     </form>
   );
 };

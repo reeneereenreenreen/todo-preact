@@ -10,6 +10,7 @@ interface DialogProps {
   onClose: () => void;
   title?: string;
   children: preact.ComponentChildren;
+  icon?: string;
   // closeOnBackdrop?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   initiallyFocused?: string; // ID of element to focus when opened
@@ -20,12 +21,12 @@ const Dialog: FunctionComponent<DialogProps> = ({
   onClose,
   title,
   children,
+  icon,
   // closeOnBackdrop = true,
   size = 'md',
   initiallyFocused
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  // const backdropRef = useRef<HTMLDivElement>(null);
 
   // Sync isOpen state with native dialog
   useEffect(() => {
@@ -45,33 +46,33 @@ const Dialog: FunctionComponent<DialogProps> = ({
   }, [isOpen, initiallyFocused]);
 
   // Focus trapping
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key !== 'Tab') return;
+  // const handleKeyDown = useCallback((e: KeyboardEvent) => {
+  //   if (e.key !== 'Tab') return;
 
-    const dialog = dialogRef.current;
-    if (!dialog) return;
+  //   const dialog = dialogRef.current;
+  //   if (!dialog) return;
 
-    const focusableElements = dialog.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    ) as NodeListOf<HTMLElement>;
+  //   const focusableElements = dialog.querySelectorAll(
+  //     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  //   ) as NodeListOf<HTMLElement>;
 
-    const firstFocusable = focusableElements[0];
-    const lastFocusable = focusableElements[focusableElements.length - 1];
+  //   const firstFocusable = focusableElements[0];
+  //   const lastFocusable = focusableElements[focusableElements.length - 1];
 
-    if (e.shiftKey) {
-      // Shift + Tab
-      if (document.activeElement === firstFocusable) {
-        e.preventDefault();
-        lastFocusable.focus();
-      }
-    } else {
-      // Tab
-      if (document.activeElement === lastFocusable) {
-        e.preventDefault();
-        firstFocusable.focus();
-      }
-    }
-  }, []);
+  //   if (e.shiftKey) {
+  //     // Shift + Tab
+  //     if (document.activeElement === firstFocusable) {
+  //       e.preventDefault();
+  //       lastFocusable.focus();
+  //     }
+  //   } else {
+  //     // Tab
+  //     if (document.activeElement === lastFocusable) {
+  //       e.preventDefault();
+  //       firstFocusable.focus();
+  //     }
+  //   }
+  // }, []);
 
   // Close on Escape
   const handleCancel = useCallback((e: Event) => {
@@ -79,35 +80,24 @@ const Dialog: FunctionComponent<DialogProps> = ({
     onClose();
   }, [onClose]);
 
-  // Close on backdrop click
-  // const handleBackdropClick = useCallback((e: MouseEvent) => {
-  //   if (e.target === backdropRef.current && closeOnBackdrop) {
-  //     onClose();
-  //   }
-  // }, [closeOnBackdrop, onClose]);
-
   return (
     <dialog
       ref={dialogRef}
       class={`dialog ${size}`}
-      onKeyDown={handleKeyDown}
+      // onKeyDown={handleKeyDown}
       onClose={onClose}
       onCancel={handleCancel}
       aria-modal="true"
       aria-labelledby={title ? 'dialog-title' : undefined}
       aria-describedby="dialog-description"
     >
-      {/* Backdrop for click handling */}
-      {/* <div
-        ref={backdropRef}
-        class="dialog-backdrop"
-        onClick={handleBackdropClick}
-      /> */}
-
-      <div class="dialog-content">
+      <div class="dialog__content">
         {title && (
-          <div class="dialog-header">
-            <h2 id="dialog-title">{title}</h2>
+          <div class="dialog__header">
+            <h2 class="dialog__title" id="dialog-title">
+              {icon && <Icon name={icon} />}
+              {title}
+            </h2>
             <Button
               icon="close"
               ariaLabel="Close dialog"
@@ -118,7 +108,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
           </div>
         )}
 
-        <div class="dialog-body" id="dialog-description">
+        <div class="dialog__body" id="dialog-description">
           {children}
         </div>
       </div>

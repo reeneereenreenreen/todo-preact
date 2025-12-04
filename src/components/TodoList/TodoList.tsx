@@ -81,7 +81,6 @@ const TodoList: FunctionComponent = () => {
         const value = (e.target as HTMLElement).innerText;
         localStorage.setItem('todoListTitle', value);
           }}
-          style={{ fontSize: '1.5em', fontWeight: 'bold', width: '100%', border: 'none', background: 'transparent', outline: 'none' }}
         >
           {localStorage.getItem('todoListTitle') || 'My Todo List'}
         </h2>

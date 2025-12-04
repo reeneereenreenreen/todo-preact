@@ -34,39 +34,53 @@ const DarkmodeToggle: FunctionComponent = () => {
   return (
     <div class="darkmode-toggle">
       <h3 class="darkmode-toggle__title">Theme</h3>
-      <label>
-        <input
-          type="radio"
-          name="theme"
-          value="system"
-          checked={theme === 'system'}
-          onChange={handleChange}
-        />
-        
-        System
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="theme"
-          value="light"
-          checked={theme === 'light'}
-          onChange={handleChange}
-        />
-        <Icon name="sun" />
-        Light
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="theme"
-          value="dark"
-          checked={theme === 'dark'}
-          onChange={handleChange}
-        />
-        <Icon name="moon" />
-        Dark
-      </label>
+      <div class="darkmode-toggle__items">
+        <div class="field field--radio">
+          <input
+            type="radio"
+            name="theme"
+            class="field__input"
+            value="system"
+            id="theme-system"
+            checked={theme === 'system'}
+            onChange={handleChange}
+          />
+          <label for="theme-system" class="field__label">
+            <Icon name="computer" />
+            System
+          </label>
+        </div>
+        <div class="field field--radio">
+          <input
+            type="radio"
+            name="theme"
+            value="light"
+            id="theme-light"
+            checked={theme === 'light'}
+            onChange={handleChange}
+            class="field__input"
+          />
+          <label for="theme-light" class="field__label">
+            <Icon name="sun" />
+            Light
+          </label>
+        </div>
+        <div class="field field--radio">
+          <input
+            type="radio"
+            name="theme"
+            value="dark"
+            id="theme-dark"
+            checked={theme === 'dark'}
+            onChange={handleChange}
+            class="field__input"
+          />
+          <label for="theme-dark" class="field__label">
+            <Icon name="moon" />
+            Dark
+          </label>
+        </div>
+      </div>
     </div>
   )
 }

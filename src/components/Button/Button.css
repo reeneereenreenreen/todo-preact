@@ -9,6 +9,7 @@
         color: var(--color-text);
         line-height: 1;
         cursor: pointer;
+        transition: var(--transition-fast);
 
         &:hover {
             color: var(--button-hover-color, var(--color-text));
@@ -19,10 +20,15 @@
             cursor: not-allowed;
             opacity: 0.5;
         }
+
+        &:active {
+            transform: scale(0.9);
+        }
     }
 
     .button--ghost {
-        background-color: transparent;
+        /* background-color: transparent; */
+        background-color: var(--color-descent-100);
         border-color: transparent;
     }
 

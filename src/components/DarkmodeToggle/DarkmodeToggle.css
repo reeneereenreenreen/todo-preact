@@ -1,4 +1,48 @@
-.theme-toggle {
+@layer me.component {
+  .darkmode-toggle__title {
+    font-size: var(--font-size-base);
+  }
+
+  .darkmode-toggle__items {
+    display: flex;
+    gap: 1rem;
+  }
+
+
+  .field--radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .field__input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+
+      &:checked + .field__label {
+        color: var(--color-text);
+        background-color: var(--color-primary);
+      }
+    }
+
+    .field__label {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--color-descent-100);
+      border-radius: 2rem;
+      corner-shape: squircle;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-black);
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* .theme-toggle {
   position: relative;
   width: 60px;
   height: 30px;
@@ -43,4 +87,4 @@
 .sun { left: 8px; opacity: 1; }
 .moon { right: 8px; opacity: 0; }
 .theme-toggle.dark .sun { opacity: 0; }
-.theme-toggle.dark .moon { opacity: 1; }
+.theme-toggle.dark .moon { opacity: 1; } */
