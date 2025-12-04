@@ -1,39 +1,17 @@
 @layer me.component {
     .header {
-        /* position: sticky;
-        top: 0; */
+        position: sticky;
+        top: 0;
+        padding-bottom: 0rem;
+        margin-top: 15rem;
+        margin-bottom: 0;
         z-index: 20;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 1rem;
-        /* background-color: var(--color-background); */
+        /* margin: 1rem; */
+        pointer-events: none;
+        background-image: linear-gradient(0deg, transparent, color-mix(in srgb, var(--color-primary) 10%, var(--color-background) 90%));
 
-            /* background-image: linear-gradient(45deg, #2e2e2ef2 0%, #1a1a1a66 100%);
-        backdrop-filter: blur(1rem);
-            box-shadow: 0 0 2rem rgba(0, 0, 0, .1); */
-
-        /* &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-image: linear-gradient(to right, transparent, var(--color-text), transparent);
-            opacity: 0.2;
-        } */
     }
-
-    /* .header__content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        width: calc(100% - 2rem);
-        max-width: var(--todo-list-width);
-        margin-inline: auto;
-        padding-inline: 2.125rem;
-        height: var(--header-height);
-    } */
 }

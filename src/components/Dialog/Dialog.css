@@ -7,7 +7,7 @@
     --dialog-top-position: auto;
     --dialog-bottom-position: 0;
     --dialog-horizontal-position: auto;
-    --backdrop-color: lch(from var(--color-black) l c h / 0.5);
+    --backdrop-color: lch(from var(--color-black) l c h / 0.75);
     --backdrop-duration: var(--transition-medium);
 
     border: none;

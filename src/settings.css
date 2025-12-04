@@ -2,6 +2,7 @@
   :root {
       --color-primary: #59c832;
     	--color-text: #222;
+    	--color-text-invert: #ccc;
 	    --color-background: #ddd;
       --color-danger: #e53e3e;
 
@@ -9,7 +10,9 @@
       --color-bar: #f0f0f0;
       --color-blubb: #fff;
 
-      --color-black: #000;
+      --color-black:#000;
+
+      --color-dark: #222;
 
       --color-descent-100: rgba(0, 0, 0, 0.025);
       --color-descent-200: rgba(0, 0, 0, 0.05);
@@ -36,6 +39,7 @@
 
   [data-theme="dark"] {
     --color-text: #ccc;
+    --color-text-invert: #222;
     --color-background: #1a1a1a;
 
     --color-foo: #222;
