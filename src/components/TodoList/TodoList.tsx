@@ -66,10 +66,30 @@ const TodoList: FunctionComponent = () => {
   const activeTodos = todos.filter(t => !t.completed);
   const doneTodos = todos.filter(t => t.completed);
 
+  function setTitle(value: string) {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <div class="todo-list">
       <div class="todo-list__content">
-        <h2 class="todo-list__title">My Todo List</h2>
+        <h2
+          class="todo-list__title"
+          contentEditable
+          onInput={e => {
+        const value = (e.target as HTMLElement).innerText;
+        localStorage.setItem('todoListTitle', value);
+        // Force re-render by updating a dummy state
+        setTitle(value);
+          }}
+          onBlur={e => {
+        const value = (e.target as HTMLElement).innerText;
+        localStorage.setItem('todoListTitle', value);
+          }}
+          style={{ fontSize: '1.5em', fontWeight: 'bold', width: '100%', border: 'none', background: 'transparent', outline: 'none' }}
+        >
+          {localStorage.getItem('todoListTitle') || 'My Todo List'}
+        </h2>
 
         <TodoForm
           onAdd={addTodo}
@@ -89,8 +109,6 @@ const TodoList: FunctionComponent = () => {
           onUpdate={updateTodo}
           section="todo"
         />
-
-
 
         <TodoSection
           title={`Done`}

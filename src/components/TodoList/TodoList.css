@@ -4,6 +4,7 @@
     width: calc(100% - 2rem);
     max-width: var(--todo-list-width);
     margin-inline: auto;
+    margin-bottom: 2rem;
     /* padding: 1px; */
     /* background-color: var(--color-bar);
     border-radius: 2rem;
@@ -31,7 +32,7 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 2rem 2rem 1.5rem;
+        /* padding: 2rem 2rem 1.5rem; */
         /* background-color: var(--color-foo);
         border-radius: inherit;
         corner-shape: inherit; */
