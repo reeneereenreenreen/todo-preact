@@ -4,7 +4,6 @@ import './TodoItem.css';
 
 import { Button } from '@components/Button';
 import { Icon } from '@components/Icon';
-// import Icon from '@components/Icon'; // default export
 
 interface Todo {
   id: string;
@@ -36,7 +35,6 @@ const TodoItem: FunctionComponent<Props> = ({
   const isEditing = editingId === todo.id;
 
   return (
-    // <li class="todo-item" draggable={!isEditing}>
     <li class="todo-item">
       <div class="field field--checkbox">
         <input
@@ -56,33 +54,30 @@ const TodoItem: FunctionComponent<Props> = ({
           </span>
         </label>
       </div>
-      {isEditing ? (
-        <input
-          autoFocus
-          value={editText}
-          // onInput={(e: any) => onUpdate(e.target.value)}
-          onBlur={(e: any) => onUpdate(e.target.value)}
-          onKeyDown={(e: any) => {
-            if (e.key === 'Enter') onUpdate(e.target.value);
-            if (e.key === 'Escape') onEditStart();
-          }}
-        />
-      ) : (
-        <span
-          class={todo.completed ? 'completed' : ''}
-          onDblClick={onEditStart}
-        >
-          {todo.text}
-        </span>
-      )}
-      {/* <button class="button button--ghost button--delete" onClick={onDelete}>×</button> */}
-
-			<Button
+      <span
+        contentEditable
+        suppressContentEditableWarning
+        autoFocus={isEditing}
+        class={todo.completed ? 'completed' : ''}
+        onBlur={(e: any) => onUpdate(e.target.innerText)}
+        onKeyDown={(e: any) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            onUpdate(e.target.innerText);
+          }
+          if (e.key === 'Escape') {
+            onEditStart();
+          }
+        }}
+      >
+        {isEditing ? editText : todo.text}
+      </span>
+      <Button
         icon="trash"
-				onClick={onDelete}
-				variant="danger"
+        onClick={onDelete}
+        variant="danger"
         appearance="ghost"
-				/>
+      />
     </li>
   );
 };

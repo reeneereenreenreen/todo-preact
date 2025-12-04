@@ -60,15 +60,10 @@ const TodoList: FunctionComponent = () => {
     ));
     setEditingId(null);
     setEditText('');
-
   };
 
   const activeTodos = todos.filter(t => !t.completed);
   const doneTodos = todos.filter(t => t.completed);
-
-  function setTitle(value: string) {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div class="todo-list">
@@ -80,7 +75,7 @@ const TodoList: FunctionComponent = () => {
         const value = (e.target as HTMLElement).innerText;
         localStorage.setItem('todoListTitle', value);
         // Force re-render by updating a dummy state
-        setTitle(value);
+        // setTitle(value);
           }}
           onBlur={e => {
         const value = (e.target as HTMLElement).innerText;

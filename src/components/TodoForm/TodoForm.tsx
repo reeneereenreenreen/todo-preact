@@ -34,6 +34,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           <label for="todo-input" class="field__label sr-only">Add a new todo</label>
           <input
             id="todo-input"
+            type="text"
             class="field__input"
             value={input}
             autocomplete="off"
