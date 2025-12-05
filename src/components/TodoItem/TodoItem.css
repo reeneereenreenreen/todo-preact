@@ -11,16 +11,25 @@
         /* &:not(:last-child) {
             border-bottom: 1px solid var(--color-descent-300);
         } */
+        transition: display var(--transition-fast) allow-discrete, transform var(--transition-fast), block-size var(--transition-fast), opacity var(--transition-fast), margin var(--transition-fast);
+
+        @starting-style {
+            block-size: 0;
+            transform: scale3d(0.95, 0.5, 1);
+            opacity: 0;
+        }
+
 
         &::before {
             content: '';
             position: absolute;
-            inset: -0.125rem -0.75rem;
+            inset: 0.5rem 4.25rem 0.5rem -0.75rem;
             z-index: -1;
-            background-color: var(--color-descent-100);
+            background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
             border-radius: 1.75rem;
             corner-shape: squircle;
             opacity: 0;
+            transition: var(--transition-medium);
         }
 
         &:hover {
@@ -36,6 +45,7 @@
 
     .todo-item__text {
         outline: 0;
+        padding: 0.25rem 0.5rem 0.25rem 0.25rem;
     }
 
     /* @todo als einzelne Componente auslagern */

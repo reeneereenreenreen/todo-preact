@@ -1,0 +1,121 @@
+@layer me.override {
+    :root {
+        --no-motion: 0; /* 0 = animations ON, 1 = OFF */
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        :root {
+            --no-motion: 1;
+            transition-property: none;
+            transition-duration: calc(var(--no-motion, 0) * 0s);
+            animation-duration: calc(var(--no-motion, 0) * 0s);
+            animation-iteration-count: calc(1 - var(--no-motion));
+        }
+    }
+
+    .no-motion {
+        *,
+        *::before,
+        *::after,
+        *::backdrop {
+            transition-property: none;
+            transition-duration: calc(var(--no-motion, 0) * 0s);
+            animation-duration: calc(var(--no-motion, 0) * 0s);
+            animation-iteration-count: calc(1 - var(--no-motion));
+        }
+    }
+
+    .motion-switch__title {
+        font-size: var(--font-size-base);
+    }
+
+    .field--switch {
+        position: relative;
+        display: inline-flex;
+
+        .field__control {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+
+            &:checked {
+                ~ .field__label .field__indicator {
+                    background-color: var(--color-primary); /* gentian-800 */
+                    border-color: var(--color-primary);
+
+                    &::before {
+                        transform: translateX(50%);
+                        background-color: #fff;
+                    }
+                }
+            }
+
+            /* &:focus {
+                ~ .field__label .field__indicator {
+                    box-shadow: 0 0 0 2px var(--color-primary);
+                }
+            } */
+
+            /* &[disabled] {
+                ~ .field__label {
+                    cursor: not-allowed;
+
+                    .field__indicator {
+                        background-color: var(--color-descent-200);
+                        border-color: var(--color-descent-200);
+                        box-shadow: 0 0 0 2px var(--color-descent-200);
+
+                        &::before {
+                            background-color: var(--color-descent-400);
+                        }
+                    }
+                }
+            } */
+        }
+
+        .field__label {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover .field__indicator {
+                box-shadow: 0 0 0 0.125rem var(--color-primary);
+            }
+        }
+
+        .field__indicator {
+            position: relative;
+            display: inline-flex;
+            flex: none;
+            height: 2rem;
+            aspect-ratio: 2 / 1;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 9999px;
+            margin-inline-start: 1px;
+            border-width: 3px;
+            border-style: solid;
+            border-color: transparent;
+            /* border-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
+            /* background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
+            box-shadow: 0 0 0 2px var(--color-primary);
+            transition: all 0.6s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0.25rem;
+                width: 100%;
+                border-radius: 9999px;
+                background-color: var(--color-primary);
+                transition: all 0.6s;
+                transform: translateX(calc(-50% - 3px));
+            }
+        }
+    }
+}

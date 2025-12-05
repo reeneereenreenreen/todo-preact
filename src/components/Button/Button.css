@@ -29,7 +29,8 @@
 
     .button--ghost {
         /* background-color: transparent; */
-        background-color: var(--color-descent-100);
+        /* background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
+        background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
         border-color: transparent;
     }
 
@@ -42,6 +43,11 @@
         --button-hover-color: #000; /* @todo */
         --button-hover-bg: var(--color-primary);
     }
+
+    /* .button--secondary {
+        --button-hover-color: #000;
+        --button-hover-bg: var(--color-primary);
+    } */
 
     .button--danger {
         --button-hover-bg: var(--color-danger);

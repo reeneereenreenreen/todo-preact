@@ -28,7 +28,7 @@
       display: flex;
       gap: 0.5rem;
       padding: 0.5rem 1rem;
-      background-color: var(--color-descent-100);
+      background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
       border-radius: 2rem;
       corner-shape: squircle;
       cursor: pointer;
@@ -36,7 +36,8 @@
 
       &:hover {
         color: var(--color-dark);
-        background-color: var(--color-primary);
+        /* background-color: var(--color-primary); */
+        background-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 70%);
       }
 
       &:active {

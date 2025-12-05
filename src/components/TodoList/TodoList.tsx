@@ -7,6 +7,7 @@ import { Dialog } from '../Dialog';
 import { Button } from '@components/Button';
 import { ColorPicker } from '../ColorPicker';
 import { DarkmodeToggle } from '../DarkmodeToggle';
+import { MotionSwitch } from '../MotionSwitch';
 
 interface Todo {
   id: string;
@@ -158,6 +159,13 @@ const TodoList: FunctionComponent = () => {
             setDeleteDialogOpen(false);
           }}
         />
+        <Button
+          icon="close"
+          label="Abort"
+          variant="primary"
+          appearance="ghost"
+          onClick={() => setDeleteDialogOpen(false)}
+        />
       </Dialog>
 
       <Dialog
@@ -167,6 +175,7 @@ const TodoList: FunctionComponent = () => {
         icon="preferences"
       >
         <DarkmodeToggle />
+        <MotionSwitch />
         <ColorPicker />
       </Dialog>
     </div>
