@@ -12,7 +12,7 @@ interface DialogProps {
   children: preact.ComponentChildren;
   icon?: string;
   // closeOnBackdrop?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  // size?: 'sm' | 'md' | 'lg' | 'xl';
   initiallyFocused?: string; // ID of element to focus when opened
 }
 
@@ -23,7 +23,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
   children,
   icon,
   // closeOnBackdrop = true,
-  size = 'md',
+  // size = 'md',
   initiallyFocused
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -83,7 +83,8 @@ const Dialog: FunctionComponent<DialogProps> = ({
   return (
     <dialog
       ref={dialogRef}
-      class={`dialog ${size}`}
+      // class={`dialog ${size}`}
+      class="dialog"
       // onKeyDown={handleKeyDown}
       onClose={onClose}
       onCancel={handleCancel}

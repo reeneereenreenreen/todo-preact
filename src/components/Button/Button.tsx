@@ -11,7 +11,7 @@ type ButtonProps = {
     disabled?: boolean
     onClick?: () => void
     variant?: 'primary' | 'secondary' | 'danger'
-    appearance?: 'filled' | 'outlined'  | 'ghost'
+    appearance?: 'solid' | 'outlined' | 'ghost'
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
@@ -33,8 +33,8 @@ const Button: FunctionComponent<ButtonProps> = ({
             type={type}
             onClick={onClick}
             >
-            {label}
             {icon && <Icon name={icon} />}
+            {label}
         </button>
     )
 }

@@ -38,6 +38,10 @@
         color: var(--color-dark);
         background-color: var(--color-primary);
       }
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 }

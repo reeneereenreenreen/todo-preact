@@ -65,6 +65,11 @@
             }
         }
 
+        &:active {
+            transform: scale(0.9);
+            transition: var(--transition-fast);
+        }
+
         .icon {
             opacity: 0;
             transition: var(--transition-fast);

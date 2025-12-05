@@ -1,9 +1,12 @@
-// components/TodoList/TodoList.tsx
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { TodoForm } from '@components/TodoForm';
 import { TodoSection } from '@components/TodoSection';
 import './TodoList.css';
+import { Dialog } from '../Dialog';
+import { Button } from '@components/Button';
+import { ColorPicker } from '../ColorPicker';
+import { DarkmodeToggle } from '../DarkmodeToggle';
 
 interface Todo {
   id: string;
@@ -26,20 +29,16 @@ const TodoList: FunctionComponent = () => {
   }, [todos]);
 
   const addTodo = (text: string) => {
-    console.log('Added todo', text);
     setTodos([{ id: crypto.randomUUID(), text, completed: false }, ...todos]);
   };
 
   const toggleTodo = (id: string) => {
-    console.log('Updated todo', id);
-
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
 
   const deleteTodo = (id: string) => {
-    console.log('Deleted todo', id);
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
@@ -48,9 +47,9 @@ const TodoList: FunctionComponent = () => {
     setEditText(text);
   };
 
+  const [title, setTitle] = useState(localStorage.getItem('todoListTitle') || 'My Todo List');
+
   const updateTodo = (id: string, text: string) => {
-
-
     if (!text.trim()) {
       deleteTodo(id);
       return;
@@ -65,6 +64,10 @@ const TodoList: FunctionComponent = () => {
   const activeTodos = todos.filter(t => !t.completed);
   const doneTodos = todos.filter(t => t.completed);
 
+  // Separate dialog states
+  const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [isPreferencesDialogOpen, setPreferencesDialogOpen] = useState(false);
+
   return (
     <div class="todo-list">
       <div class="todo-list__content">
@@ -72,17 +75,15 @@ const TodoList: FunctionComponent = () => {
           class="todo-list__title"
           contentEditable
           onInput={e => {
-        const value = (e.target as HTMLElement).innerText;
-        localStorage.setItem('todoListTitle', value);
-        // Force re-render by updating a dummy state
-        // setTitle(value);
+            const value = (e.target as HTMLElement).innerText;
+            localStorage.setItem('todoListTitle', value);
           }}
           onBlur={e => {
-        const value = (e.target as HTMLElement).innerText;
-        localStorage.setItem('todoListTitle', value);
+            const value = (e.target as HTMLElement).innerText;
+            localStorage.setItem('todoListTitle', value);
           }}
         >
-          {localStorage.getItem('todoListTitle') || 'My Todo List'}
+          {title}
         </h2>
 
         <TodoForm
@@ -117,8 +118,59 @@ const TodoList: FunctionComponent = () => {
           section="done"
         />
       </div>
+
+      <div class="todo-list__footer">
+        <Button
+          icon="preferences"
+          label="Preferences"
+          variant="primary"
+          appearance="ghost"
+          onClick={() => setPreferencesDialogOpen(true)}
+        />
+
+        <Button
+          icon="trash"
+          label="Cleanup"
+          variant="danger"
+          appearance="ghost"
+          onClick={() => setDeleteDialogOpen(true)}
+        />
+      </div>
+
+      <Dialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setDeleteDialogOpen(false)}
+        title="Delete All Todos"
+        icon="warning"
+      >
+        <Button
+          icon="trash"
+          label="Delete All Todos"
+          variant="danger"
+          appearance="solid"
+          onClick={() => {
+            setTodos([]);
+            setEditingId(null);
+            setEditText('');
+            localStorage.removeItem('todos');
+            localStorage.removeItem('todoListTitle');
+            setTitle('Next Todo List');
+            setDeleteDialogOpen(false);
+          }}
+        />
+      </Dialog>
+
+      <Dialog
+        isOpen={isPreferencesDialogOpen}
+        onClose={() => setPreferencesDialogOpen(false)}
+        title="Preferences"
+        icon="preferences"
+      >
+        <DarkmodeToggle />
+        <ColorPicker />
+      </Dialog>
     </div>
   );
 };
 
-export default TodoList
+export default TodoList;

@@ -4,9 +4,6 @@ import { useState } from 'preact/hooks';
 import './TodoForm.css';
 
 import { Button } from '@components/Button';
-import { Dialog } from '@components/Dialog';
-import { DarkmodeToggle } from '@components/DarkmodeToggle';
-import { ColorPicker } from '@components/ColorPicker';
 import { Icon } from '../Icon';
 
 interface Props {
@@ -46,9 +43,6 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
             disabled={disabled}
           />
         </div>
-        {/* <button type="submit" aria-label="Add to todo list" disabled={!input.trim() || disabled}>
-          +
-        </button> */}
 
         <Button
           icon="enter"
@@ -58,26 +52,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           variant="primary"
           appearance="ghost"
           />
-        <Button
-          icon="dots-vertical"
-          ariaLabel="Open Menu"
-          variant="primary"
-          appearance="ghost"
-          onClick={() => setIsOpen(true)}
-        />
       </div>
-
-      <Dialog
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        title="Preferences"
-        icon="preferences"
-        size="lg"
-        // initiallyFocused="name-input"
-      >
-        <DarkmodeToggle />
-        <ColorPicker />
-      </Dialog>
     </form>
   );
 };

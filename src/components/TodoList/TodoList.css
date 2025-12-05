@@ -5,6 +5,14 @@
         max-width: var(--todo-list-width);
         margin-inline: auto;
         margin-bottom: 2rem;
+
+        &:not(:has(.todo-item)) {
+            .todo-list__footer {
+                .button--danger {
+                    display: none;
+                }
+            }
+        }
     }
 
     .todo-list__title {
@@ -16,9 +24,8 @@
         corner-shape: squircle;
         outline: none;
         transition: var(--transition-fast);
-
-
-/* style={{ fontSize: '1.5em', fontWeight: 'bold', width: '100%', border: 'none', background: 'transparent', outline: 'none' }} */
+        max-width: fit-content;
+        margin-bottom: 0.5rem;
 
         &:hover,
         &:focus {
@@ -26,9 +33,17 @@
         }
     }
 
-    .todo-list__content {
+    /* .todo-list__content {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    } */
+
+    .todo-list__footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
     }
 }

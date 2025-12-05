@@ -3,6 +3,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 0.5rem;
         padding: 1rem;
         border-radius: 2rem;
         corner-shape: squircle;
@@ -32,6 +33,11 @@
         border-color: transparent;
     }
 
+    .button--solid {
+        background-color: var(--color-primary);
+        border-color: transparent;
+    }
+
     .button--primary {
         --button-hover-color: #000; /* @todo */
         --button-hover-bg: var(--color-primary);
@@ -39,5 +45,9 @@
 
     .button--danger {
         --button-hover-bg: var(--color-danger);
+
+        &.button--solid {
+            background-color: var(--color-danger);
+        }
     }
 }
