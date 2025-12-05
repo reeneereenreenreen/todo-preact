@@ -73,15 +73,16 @@
             position: absolute;
             inset: -0.125rem 0.25rem;
             z-index: -1;
-            background-color: var(--color-bar);
+            background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
             border-radius: 1.75rem;
             corner-shape: squircle;
             opacity: 0;
+            transition: var(--transition-fast);
         }
 
         &:hover {
             &::before {
-                opacity: 0.5;
+                opacity: 1;
             }
 
             .icon {

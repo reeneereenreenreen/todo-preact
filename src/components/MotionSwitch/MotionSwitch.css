@@ -45,7 +45,7 @@
 
                     &::before {
                         transform: translateX(50%);
-                        background-color: #fff;
+                        background-color: var(--color-background);
                     }
                 }
             }

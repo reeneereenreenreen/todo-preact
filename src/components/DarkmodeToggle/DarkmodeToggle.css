@@ -35,7 +35,7 @@
       transition: var(--transition-fast);
 
       &:hover {
-        color: var(--color-dark);
+        /* color: var(--color-dark); */
         /* background-color: var(--color-primary); */
         background-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 70%);
       }

@@ -7,7 +7,8 @@ export default defineConfig({
 	plugins: [preact()],
 	resolve: {
 		alias: {
-		'@components': path.resolve(__dirname, 'src/components'),
+			'@components': path.resolve(__dirname, 'src/components'),
 		},
 	},
+	assetsInclude: ['**/*.woff2']
 });
