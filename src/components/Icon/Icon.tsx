@@ -1,4 +1,4 @@
-// components/Icon/Icon.tsx
+// @todo sowas entfernen // components/Icon/Icon.tsx
 import { FunctionComponent, JSX } from 'preact';
 import { SVGAttributes } from 'preact';
 import './Icon.css';
@@ -11,24 +11,9 @@ interface IconProps extends SVGAttributes<SVGSVGElement> {
 const Icon: FunctionComponent<IconProps> = ({
   name,
   size = 'md',
-  // color = 'currentColor',
-  // class: className,
-  ...props
 }) => {
 
   const icons: Record<string, JSX.Element> = {
-  //   home: (
-  //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  //       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-  //       <polyline points="9 22 9 12 15 12 15 22"/>
-  //     </svg>
-  //   ),
-  //   user: (
-  //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  //       <circle cx="12" cy="7" r="4"/>
-  //       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-  //     </svg>
-  //   ),
     trash: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="3 6 5 6 21 6"/>
@@ -60,12 +45,6 @@ const Icon: FunctionComponent<IconProps> = ({
         <circle cx="12" cy="19" r="1.5"/>
       </svg>
     ),
-  //   edit: (
-  //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  //       <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-  //       <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-  //     </svg>
-  //   ),
     sun: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="5"/>
@@ -111,13 +90,6 @@ const Icon: FunctionComponent<IconProps> = ({
         <path d="M10.29 3.86l-8.09 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.8-3.14l-8.09-14a2 2 0 0 0-3.42 0z"/>
       </svg>
     ),
-  //   menu: (
-  //     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  //       <line x1="3" y1="12" x2="21" y2="12"/>
-  //       <line x1="3" y1="6" x2="21" y2="6"/>
-  //       <line x1="3" y1="18" x2="21" y2="18"/>
-  //     </svg>
-  //   ),
     close: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="18" y1="6" x2="6" y2="18"/>

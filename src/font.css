@@ -21,6 +21,7 @@
 	h2,
 	h3 {
 		font-weight: 400;
+		cursor: default;
 	}
 	/* Use standard CSS properties */
 	/* .heading {

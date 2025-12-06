@@ -17,7 +17,8 @@
                 animation: spin linear both;
                 animation-timeline: scroll();
                 animation-range: 0 15rem;
-                transform-origin: 50% 0;
+                /* transform-origin: 50% 0; */
+                transform-origin: 50% 150%;
             }
         }
     }
