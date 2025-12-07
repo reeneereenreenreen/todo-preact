@@ -1,6 +1,5 @@
-// components/Dialog/Dialog.tsx
-import { h, FunctionComponent, RefObject } from 'preact';
-import { useRef, useEffect, useCallback } from 'preact/hooks';
+import { h, FunctionComponent } from 'preact';
+import { useRef, useEffect, useCallback, useId } from 'preact/hooks';
 import Icon from '../Icon/Icon';
 import './Dialog.css';
 import { Button } from '../Button';
@@ -11,8 +10,6 @@ interface DialogProps {
   title?: string;
   children: preact.ComponentChildren;
   icon?: string;
-  // closeOnBackdrop?: boolean;
-  // size?: 'sm' | 'md' | 'lg' | 'xl';
   initiallyFocused?: string; // ID of element to focus when opened
 }
 
@@ -22,59 +19,29 @@ const Dialog: FunctionComponent<DialogProps> = ({
   title,
   children,
   icon,
-  // closeOnBackdrop = true,
-  // size = 'md',
   initiallyFocused
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const uniqueId = useId ? useId() : Math.random().toString(36).slice(2, 10); // fallback for older Preact
 
-  // Sync isOpen state with native dialog
+  const titleId = `dialog-title-${uniqueId}`;
+  const descId = `dialog-description-${uniqueId}`;
+
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
     if (isOpen && !dialog.open) {
       dialog.showModal();
-      // Focus initial element or title
       const focusTarget = initiallyFocused
         ? dialog.querySelector(`#${initiallyFocused}`) as HTMLElement
-        : dialog.querySelector('h2, [data-autofocus]') as HTMLElement;
+        : dialog.querySelector(`#${titleId}, [data-autofocus]`) as HTMLElement;
       focusTarget?.focus();
     } else if (!isOpen && dialog.open) {
       dialog.close();
     }
-  }, [isOpen, initiallyFocused]);
+  }, [isOpen, initiallyFocused, titleId]);
 
-  // Focus trapping
-  // const handleKeyDown = useCallback((e: KeyboardEvent) => {
-  //   if (e.key !== 'Tab') return;
-
-  //   const dialog = dialogRef.current;
-  //   if (!dialog) return;
-
-  //   const focusableElements = dialog.querySelectorAll(
-  //     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  //   ) as NodeListOf<HTMLElement>;
-
-  //   const firstFocusable = focusableElements[0];
-  //   const lastFocusable = focusableElements[focusableElements.length - 1];
-
-  //   if (e.shiftKey) {
-  //     // Shift + Tab
-  //     if (document.activeElement === firstFocusable) {
-  //       e.preventDefault();
-  //       lastFocusable.focus();
-  //     }
-  //   } else {
-  //     // Tab
-  //     if (document.activeElement === lastFocusable) {
-  //       e.preventDefault();
-  //       firstFocusable.focus();
-  //     }
-  //   }
-  // }, []);
-
-  // Close on Escape
   const handleCancel = useCallback((e: Event) => {
     e.preventDefault();
     onClose();
@@ -83,19 +50,17 @@ const Dialog: FunctionComponent<DialogProps> = ({
   return (
     <dialog
       ref={dialogRef}
-      // class={`dialog ${size}`}
       class="dialog"
-      // onKeyDown={handleKeyDown}
       onClose={onClose}
       onCancel={handleCancel}
       aria-modal="true"
-      aria-labelledby={title ? 'dialog-title' : undefined}
-      aria-describedby="dialog-description"
+      aria-labelledby={title ? titleId : undefined}
+      aria-describedby={descId}
     >
       <div class="dialog__content">
         {title && (
           <div class="dialog__header">
-            <h2 class="dialog__title" id="dialog-title">
+            <h2 class="dialog__title" id={titleId}>
               {icon && <Icon name={icon} />}
               {title}
             </h2>
@@ -109,7 +74,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
           </div>
         )}
 
-        <div class="dialog__body" id="dialog-description">
+        <div class="dialog__body" id={descId}>
           {children}
         </div>
       </div>

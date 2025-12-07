@@ -13,6 +13,16 @@
 		-webkit-text-size-adjust: 100%;
 		caret-color: var(--color-primary);
 		overflow-y: scroll;
+
+		/* &::search-text {
+			background-color: rgba(0, 190, 57, 0.4);
+			color: inherit;
+
+			&:current {
+				background-color: #ff00aa;
+				text-decoration: underline;
+			}
+		} */
 	}
 
 	.main {

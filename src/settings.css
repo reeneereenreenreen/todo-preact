@@ -24,7 +24,7 @@
       --color-descent-800: rgba(0, 0, 0, 0.35);
       --color-descent-900: rgba(0, 0, 0, 0.40);
 
-      --header-height: 5.25rem;
+      --header-height: 9rem; /* 5.25rem */
       --todo-list-width: 60rem;
 
       --transition-slow: calc(var(--transition-medium) * 1.5);

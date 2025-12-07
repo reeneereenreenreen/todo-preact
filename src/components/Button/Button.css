@@ -5,6 +5,7 @@
         justify-content: center;
         gap: 0.5rem;
         padding: 1rem;
+        border: 2px solid transparent;
         border-radius: 2rem;
         corner-shape: squircle;
         color: var(--color-text);
@@ -25,11 +26,15 @@
         &:active {
             transform: scale(0.9);
         }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%); /* @todo als vairalbe */
+            border-color: var(--color-primary);
+        }
     }
 
     .button--ghost {
-        /* background-color: transparent; */
-        /* background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
         background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
         border-color: transparent;
     }

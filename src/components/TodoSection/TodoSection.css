@@ -1,6 +1,6 @@
 @layer me.component {
     .todo-section {
-        overflow: hidden;
+        overflow: clip;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -54,8 +54,9 @@
 
     .todo-section__header {
         position: sticky;
-        /* top: var(--header-height); */
-        top: 0;
+        top: var(--header-height);
+        /* top: 0; */
+
         z-index: 0;
         display: flex;
         align-items: center;
@@ -66,6 +67,8 @@
         background-color: var(--color-foo);
         z-index: 10;
         margin-inline: -1rem;
+        border-radius: 1.75rem;
+        corner-shape: squircle;
         transition: var(--transition-fast);
 
         &::before {
@@ -74,8 +77,8 @@
             inset: -0.125rem 0.25rem;
             z-index: -1;
             background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
-            border-radius: 1.75rem;
-            corner-shape: squircle;
+            border-radius: inherit;
+            corner-shape: inherit;
             opacity: 0;
             transition: var(--transition-fast);
         }
@@ -92,6 +95,11 @@
 
         &:active {
             transform: scale3d(0.99, 0.95, 1);
+        }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
         }
 
         .icon {

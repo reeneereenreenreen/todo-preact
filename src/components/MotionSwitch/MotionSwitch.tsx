@@ -52,7 +52,6 @@ const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
           class="field__control"
           checked={!noMotion}
           onChange={toggleMotion}
-          aria-checked={!noMotion}
           />
         <label class="field__label" for="motion-switch">
           <span class="field__indicator"></span>

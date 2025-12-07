@@ -100,6 +100,15 @@
                     }
                 }
             }
+
+            &:focus-visible {
+                + .field__label {
+                    .field__icon {
+                        box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
+                        border-color: var(--color-primary);
+                    }
+                }
+            }
         }
 
         .field__label {

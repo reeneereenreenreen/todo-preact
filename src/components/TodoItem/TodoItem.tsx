@@ -50,7 +50,7 @@ const TodoItem: FunctionComponent<Props> = ({
             <Icon name="check" />
           </span>
           <span class="sr-only">
-            {section === 'done' ? 'Not done' : 'Make it done'}
+            {section === 'done' ? `Undone: ${todo.text}` : `Done: ${todo.text}`}
           </span>
         </label>
       </div>

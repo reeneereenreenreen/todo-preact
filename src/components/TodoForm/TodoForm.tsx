@@ -29,8 +29,9 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
     <form onSubmit={handleSubmit} class="todo-form">
       <div class="field-group">
         <div class="field field--text">
-          <label for="todo-input" class="field__label" aria-label="Add a new todo">
+          <label for="todo-input" class="field__label">
             <Icon name="plus" />
+             <span class="sr-only">Add a new todo</span>
           </label>
           <input
             id="todo-input"
