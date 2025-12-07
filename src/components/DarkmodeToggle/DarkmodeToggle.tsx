@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import './DarkmodeToggle.css'
-import { Icon } from '@components/Icon'
+import Icon from '../Icon/Icon'
 
 const DarkmodeToggle: FunctionComponent = () => {
   const [theme, setTheme] = useState<'system' | 'dark' | 'light'>('system')
