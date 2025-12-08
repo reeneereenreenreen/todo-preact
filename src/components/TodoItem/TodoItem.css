@@ -73,6 +73,7 @@
 
   /* @todo als einzelne Componente auslagern */
   .field--checkbox {
+    /* stylelint-disable no-descending-specificity */
     .field__control {
       position: absolute;
       opacity: 0;
@@ -162,11 +163,13 @@
       opacity: 0.75;
       transition: var(--transition-medium);
 
+
       .icon {
         opacity: 0;
         transform: scale(0);
         transition: inherit;
       }
     }
+    /* stylelint-enable no-descending-specificity */
   }
 }

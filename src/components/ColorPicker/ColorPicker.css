@@ -24,6 +24,7 @@
     }
   }
 
+  /* stylelint-disable no-descending-specificity */
   .color-picker__item {
     padding: 0.5rem;
 
@@ -45,6 +46,7 @@
       --scale: 1.1;
     }
   }
+  /* stylelint-enable no-descending-specificity */
 
   .color-picker__button {
     display: flex;
@@ -82,10 +84,12 @@
           );
     }
 
+    /* stylelint-disable no-descending-specificity */
     .icon {
       opacity: 0;
       transition: var(--transition-fast);
       color: var(--color-dark);
     }
+    /* stylelint-enable no-descending-specificity */
   }
 }

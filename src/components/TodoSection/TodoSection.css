@@ -101,9 +101,11 @@
         opacity: 1;
       }
 
+      /* stylelint-disable no-descending-specificity */
       .icon {
         opacity: 1;
       }
+      /* stylelint-enable no-descending-specificity */
     }
 
     &:active {
@@ -122,10 +124,12 @@
           );
     }
 
+    /* stylelint-disable no-descending-specificity */
     .icon {
       opacity: 0.2;
       transition: var(--transition-fast);
     }
+    /* stylelint-enable no-descending-specificity */
   }
 
   .todo-section__title {

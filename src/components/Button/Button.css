@@ -28,6 +28,7 @@
     }
 
     &:focus-visible {
+      border-color: var(--color-primary);
       outline: 0;
       box-shadow:
         0 0 0 1px var(--color-primary),
@@ -36,8 +37,7 @@
             in srgb,
             var(--color-primary) 30%,
             var(--color-background) 80%
-          ); /* @todo als vairalbe */
-      border-color: var(--color-primary);
+          ); /* @todo als variable */
     }
   }
 

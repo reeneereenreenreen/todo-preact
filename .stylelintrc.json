@@ -1,13 +1,19 @@
 {
   "extends": ["stylelint-config-standard"],
+  "ignoreFiles": ["dist/**"],
   "plugins": ["stylelint-selector-bem-pattern"],
   "rules": {
-    "plugin/selector-bem-pattern": [
+    "property-no-unknown": [
       true,
       {
-        "preset": "bem"
+        "ignoreProperties": [
+          "corner-shape"
+        ]
       }
     ],
+    "plugin/selector-bem-pattern": {
+      "preset": "bem"
+    },
     "selector-class-pattern": null
   }
 }
