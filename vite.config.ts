@@ -4,11 +4,11 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [preact()],
-	resolve: {
-		alias: {
-			'@components': path.resolve(__dirname, 'src/components'),
-		},
-	},
-	assetsInclude: ['**/*.woff2']
+  plugins: [preact()],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+    },
+  },
+  assetsInclude: ['**/*.woff2'],
 });

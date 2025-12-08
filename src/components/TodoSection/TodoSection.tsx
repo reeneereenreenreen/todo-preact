@@ -41,7 +41,7 @@ const TodoSection: FunctionComponent<Props> = (props) => {
         </summary>
 
         <ul class="todo-section__items">
-          {props.todos.map(todo => (
+          {props.todos.map((todo) => (
             <TodoItem
               key={todo.id}
               todo={todo}

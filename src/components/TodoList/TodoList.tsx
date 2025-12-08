@@ -34,13 +34,15 @@ const TodoList: FunctionComponent = () => {
   };
 
   const toggleTodo = (id: string) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const startEdit = (id: string, text: string) => {
@@ -48,22 +50,26 @@ const TodoList: FunctionComponent = () => {
     setEditText(text);
   };
 
-  const [title, setTitle] = useState(localStorage.getItem('todoListTitle') || 'My Todo List');
+  const [title, setTitle] = useState(
+    localStorage.getItem('todoListTitle') || 'My Todo List'
+  );
 
   const updateTodo = (id: string, text: string) => {
     if (!text.trim()) {
       deleteTodo(id);
       return;
     }
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, text: text.trim() } : todo
-    ));
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, text: text.trim() } : todo
+      )
+    );
     setEditingId(null);
     setEditText('');
   };
 
-  const activeTodos = todos.filter(t => !t.completed);
-  const doneTodos = todos.filter(t => t.completed);
+  const activeTodos = todos.filter((t) => !t.completed);
+  const doneTodos = todos.filter((t) => t.completed);
 
   // Separate dialog states
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -75,11 +81,11 @@ const TodoList: FunctionComponent = () => {
         <h2
           class="todo-list__title"
           contentEditable
-          onInput={e => {
+          onInput={(e) => {
             const value = (e.target as HTMLElement).innerText;
             localStorage.setItem('todoListTitle', value);
           }}
-          onBlur={e => {
+          onBlur={(e) => {
             const value = (e.target as HTMLElement).innerText;
             localStorage.setItem('todoListTitle', value);
           }}

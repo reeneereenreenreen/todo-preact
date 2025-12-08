@@ -10,7 +10,7 @@ export default [
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      parser: parser,
+      parser,
       parserOptions: {
         project: './tsconfig.json',
         ecmaFeatures: { jsx: true },

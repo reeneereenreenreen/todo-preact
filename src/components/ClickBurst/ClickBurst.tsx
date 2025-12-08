@@ -21,7 +21,7 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
       // Create 4 comic particles
       for (let i = 0; i < 4; i++) {
         const particle = document.createElement('span');
-        const angle = (i * 90) * (Math.PI / 180);
+        const angle = i * 90 * (Math.PI / 180);
         const velocity = 120 + Math.random() * 60;
         const vx = Math.cos(angle) * velocity;
         const vy = Math.sin(angle) * velocity;
@@ -47,11 +47,15 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
     };
 
     document.addEventListener('click', handleClick, { passive: true });
-    document.addEventListener('touchstart', (e: TouchEvent) => {
-      e.preventDefault();
-      const touch = e.touches[0];
-      createBurst(touch.clientX, touch.clientY);
-    }, { passive: false });
+    document.addEventListener(
+      'touchstart',
+      (e: TouchEvent) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        createBurst(touch.clientX, touch.clientY);
+      },
+      { passive: false }
+    );
 
     return () => {
       document.removeEventListener('click', handleClick);

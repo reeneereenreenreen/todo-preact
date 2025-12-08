@@ -52,10 +52,10 @@ const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
           class="field__control"
           checked={!noMotion}
           onChange={toggleMotion}
-          />
+        />
         <label class="field__label" for="motion-switch">
-          <span class="field__indicator"></span>
-            {noMotion ? 'Enable animations' : 'Disable animations'}
+          <span class="field__indicator" />
+          {noMotion ? 'Enable animations' : 'Disable animations'}
         </label>
       </div>
     </div>

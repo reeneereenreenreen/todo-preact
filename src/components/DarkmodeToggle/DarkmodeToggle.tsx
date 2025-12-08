@@ -1,35 +1,48 @@
-import { FunctionComponent } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
-import './DarkmodeToggle.css'
-import Icon from '../Icon/Icon'
+import { FunctionComponent } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
+import './DarkmodeToggle.css';
+import Icon from '../Icon/Icon';
 
 const DarkmodeToggle: FunctionComponent = () => {
-  const [theme, setTheme] = useState<'system' | 'dark' | 'light'>('system')
+  const [theme, setTheme] = useState<'system' | 'dark' | 'light'>('system');
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
+    const saved = localStorage.getItem('theme');
     if (saved === 'dark' || saved === 'light') {
-      setTheme(saved)
-      document.documentElement.setAttribute('data-theme', saved)
+      setTheme(saved);
+      document.documentElement.setAttribute('data-theme', saved);
     } else {
-      setTheme('system')
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
+      setTheme('system');
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      document.documentElement.setAttribute(
+        'data-theme',
+        prefersDark ? 'dark' : 'light'
+      );
     }
-  }, [])
+  }, []);
 
   const handleChange = (e: Event) => {
-    const value = (e.target as HTMLInputElement).value as 'system' | 'dark' | 'light'
-    setTheme(value)
+    const value = (e.target as HTMLInputElement).value as
+      | 'system'
+      | 'dark'
+      | 'light';
+    setTheme(value);
     if (value === 'system') {
-      localStorage.removeItem('theme')
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
+      localStorage.removeItem('theme');
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      document.documentElement.setAttribute(
+        'data-theme',
+        prefersDark ? 'dark' : 'light'
+      );
     } else {
-      localStorage.setItem('theme', value)
-      document.documentElement.setAttribute('data-theme', value)
+      localStorage.setItem('theme', value);
+      document.documentElement.setAttribute('data-theme', value);
     }
-  }
+  };
 
   return (
     <div class="darkmode-toggle">
@@ -82,7 +95,7 @@ const DarkmodeToggle: FunctionComponent = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DarkmodeToggle
+export default DarkmodeToggle;

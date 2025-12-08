@@ -19,7 +19,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
   title,
   children,
   icon,
-  initiallyFocused
+  initiallyFocused,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const uniqueId = useId ? useId() : Math.random().toString(36).slice(2, 10); // fallback for older Preact
@@ -34,18 +34,23 @@ const Dialog: FunctionComponent<DialogProps> = ({
     if (isOpen && !dialog.open) {
       dialog.showModal();
       const focusTarget = initiallyFocused
-        ? dialog.querySelector(`#${initiallyFocused}`) as HTMLElement
-        : dialog.querySelector(`#${titleId}, [data-autofocus]`) as HTMLElement;
+        ? (dialog.querySelector(`#${initiallyFocused}`) as HTMLElement)
+        : (dialog.querySelector(
+            `#${titleId}, [data-autofocus]`
+          ) as HTMLElement);
       focusTarget?.focus();
     } else if (!isOpen && dialog.open) {
       dialog.close();
     }
   }, [isOpen, initiallyFocused, titleId]);
 
-  const handleCancel = useCallback((e: Event) => {
-    e.preventDefault();
-    onClose();
-  }, [onClose]);
+  const handleCancel = useCallback(
+    (e: Event) => {
+      e.preventDefault();
+      onClose();
+    },
+    [onClose]
+  );
 
   return (
     <dialog

@@ -12,14 +12,14 @@ import './font.css';
 import './style.css';
 
 export function App() {
-	return (
-		<main class="main">
-			<ClickBurst />
-			<Header />
-			<TodoList />
-			{/* <Footer /> */}
-		</main>
-	);
+  return (
+    <main class="main">
+      <ClickBurst />
+      <Header />
+      <TodoList />
+      {/* <Footer /> */}
+    </main>
+  );
 }
 
 render(<App />, document.getElementById('app'));

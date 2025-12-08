@@ -1,1 +1,1 @@
-export { default as MotionSwitch } from './MotionSwitch'
+export { default as MotionSwitch } from './MotionSwitch';

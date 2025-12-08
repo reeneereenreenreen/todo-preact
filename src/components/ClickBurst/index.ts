@@ -1,1 +1,1 @@
-export { default as ClickBurst } from './ClickBurst'
+export { default as ClickBurst } from './ClickBurst';

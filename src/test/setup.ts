@@ -11,14 +11,18 @@ class MockDialogElement extends HTMLElement {
   showModal() {
     this.open = true;
     this.inert = true;
-    this.dispatchEvent(new Event('close', { bubbles: false, cancelable: false }));
+    this.dispatchEvent(
+      new Event('close', { bubbles: false, cancelable: false })
+    );
   }
 
   close(returnValue?: string) {
     this.open = false;
     this.inert = false;
     this.returnValue = returnValue || '';
-    this.dispatchEvent(new Event('close', { bubbles: false, cancelable: false }));
+    this.dispatchEvent(
+      new Event('close', { bubbles: false, cancelable: false })
+    );
   }
 }
 
@@ -30,13 +34,13 @@ Object.defineProperty(window, 'HTMLDialogElement', {
 
 // Polyfill ::backdrop if needed
 Object.defineProperty(HTMLElement.prototype, 'showModal', {
-  value: function() {
+  value() {
     (this as any).open = true;
   },
   writable: true,
 });
 Object.defineProperty(HTMLElement.prototype, 'close', {
-  value: function() {
+  value() {
     (this as any).open = false;
   },
   writable: true,

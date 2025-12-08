@@ -12,7 +12,11 @@ interface Props {
   placeholder?: string;
 }
 
-const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Add new todo..." }) => {
+const TodoForm: FunctionComponent<Props> = ({
+  onAdd,
+  disabled,
+  placeholder = 'Add new todo...',
+}) => {
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,7 +35,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
         <div class="field field--text">
           <label for="todo-input" class="field__label">
             <Icon name="plus" />
-             <span class="sr-only">Add a new todo</span>
+            <span class="sr-only">Add a new todo</span>
           </label>
           <input
             id="todo-input"
@@ -52,7 +56,7 @@ const TodoForm: FunctionComponent<Props> = ({ onAdd, disabled, placeholder = "Ad
           disabled={!input.trim() || disabled}
           variant="primary"
           appearance="ghost"
-          />
+        />
       </div>
     </form>
   );
