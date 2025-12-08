@@ -1,38 +1,38 @@
 @layer me.layout {
-	/* src/style/fonts.css */
-	@font-face {
-		font-family: 'Google Sans Flex';
-		src: url('/fonts/Google-Sans-Flex.woff2') format('woff2-variations');
-		font-weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
+  /* src/style/fonts.css */
+  @font-face {
+    font-family: 'Google Sans Flex';
+    src: url('/fonts/Google-Sans-Flex.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
 
-	/* @todo verschieben */
-	body {
-		font-family: 'Google Sans Flex', system-ui, sans-serif;
-		letter-spacing: 0.2px;
-	}
+  /* @todo verschieben */
+  body {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    letter-spacing: 0.2px;
+  }
 
-	h1 {
-		font-weight: 800;
-	}
+  h1 {
+    font-weight: 800;
+  }
 
-	h2,
-	h3 {
-		font-weight: 400;
-		cursor: default;
-	}
+  h2,
+  h3 {
+    font-weight: 400;
+    cursor: default;
+  }
 
-	/* Use standard CSS properties */
+  /* Use standard CSS properties */
 
-	/* .heading {
+  /* .heading {
 		font-stretch: 75% 125%;
 	} */
 
-	/* Custom axes (if font supports) */
+  /* Custom axes (if font supports) */
 
-	/* @supports (font-variation-settings: normal) {
+  /* @supports (font-variation-settings: normal) {
 		.custom {
 			font-variation-settings: 'wght' 700, 'slnt' -10;
 		}

@@ -1,57 +1,68 @@
 @layer me.component {
-    .todo-list {
-        align-items: center;
-        width: calc(100% - 2rem);
-        max-width: var(--todo-list-width);
-        margin-inline: auto;
-        margin-bottom: 2rem;
+  .todo-list {
+    align-items: center;
+    width: calc(100% - 2rem);
+    max-width: var(--todo-list-width);
+    margin-inline: auto;
+    margin-bottom: 2rem;
 
-        &:not(:has(.todo-item)) {
-            .todo-list__footer {
-                .button--danger {
-                    display: none;
-                }
-            }
+    &:not(:has(.todo-item)) {
+      .todo-list__footer {
+        .button--danger {
+          display: none;
         }
+      }
+    }
+  }
+
+  .todo-list__title {
+    position: relative;
+    z-index: 30;
+    margin: auto;
+    font-size: var(--font-size-lg);
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    corner-shape: squircle;
+    outline: none;
+    max-width: fit-content;
+    margin-bottom: 0.5rem;
+    cursor: text;
+    transition: var(--transition-fast);
+
+    &:hover {
+      /* transform: scale(1.05); */
+      background-color: color-mix(
+        in srgb,
+        var(--color-primary) 15%,
+        var(--color-background) 20%
+      );
     }
 
-    .todo-list__title {
-        position: relative;
-        z-index: 30;
-        margin: auto;
-        font-size: var(--font-size-lg);
-        text-align: center;
-        padding: 0.5rem 1.5rem;
-        border-radius: 2rem;
-        corner-shape: squircle;
-        outline: none;
-        max-width: fit-content;
-        margin-bottom: 0.5rem;
-        cursor: text;
-        transition: var(--transition-fast);
-
-        &:hover {
-            /* transform: scale(1.05); */
-            background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-background) 20%);
-        }
-
-        &:focus {
-            background-color: var(--color-background);
-            box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
-        }
+    &:focus {
+      background-color: var(--color-background);
+      box-shadow:
+        0 0 0 1px var(--color-primary),
+        0 0 0 0.25rem
+          color-mix(
+            in srgb,
+            var(--color-primary) 30%,
+            var(--color-background) 80%
+          );
     }
+  }
 
-    /* .todo-list__content {
+  /* .todo-list__content {
         display: flex;
         flex-direction: column;
         gap: 1rem;
     } */
 
-    .todo-list__footer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
+  .todo-list__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 }

@@ -1,125 +1,143 @@
 @layer me.component {
-    .todo-section {
-        overflow: clip;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin-top: 1rem;
+  .todo-section {
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 1rem;
 
-        /* padding: 1px; */
+    /* padding: 1px; */
 
-        /* background-color: var(--color-bar); */
-        border-radius: 2rem;
-        corner-shape: squircle;
-        box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 10%);
+    /* background-color: var(--color-bar); */
+    border-radius: 2rem;
+    corner-shape: squircle;
+    box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 10%);
 
-        /* background-image: linear-gradient(90deg, transparent, var(--color-blubb), transparent); */
-        transition: display var(--transition-fast) allow-discrete, transform var(--transition-fast), block-size var(--transition-fast), opacity var(--transition-fast), margin var(--transition-fast);
+    /* background-image: linear-gradient(90deg, transparent, var(--color-blubb), transparent); */
+    transition:
+      display var(--transition-fast) allow-discrete,
+      transform var(--transition-fast),
+      block-size var(--transition-fast),
+      opacity var(--transition-fast),
+      margin var(--transition-fast);
 
-        @starting-style {
-            block-size: 0;
-            transform: scale(0.5);
-            opacity: 0;
-        }
-
-        &:not(:has(.todo-item)) {
-            display: none;
-            transform: scale(0.5);
-            opacity: 0;
-            block-size: 0;
-        }
+    @starting-style {
+      block-size: 0;
+      transform: scale(0.5);
+      opacity: 0;
     }
 
-    .todo-section__content {
-        padding: 1rem;
-        background-color: var(--color-foo);
-        border-radius: inherit;
-        corner-shape: inherit;
+    &:not(:has(.todo-item)) {
+      display: none;
+      transform: scale(0.5);
+      opacity: 0;
+      block-size: 0;
+    }
+  }
 
-        @media (width > 576px) {
-            padding: 1.5rem;
-        }
+  .todo-section__content {
+    padding: 1rem;
+    background-color: var(--color-foo);
+    border-radius: inherit;
+    corner-shape: inherit;
 
-        &:open .todo-section__header .icon {
-            transform: rotate(180deg);
-        }
-
-        &::details-content {
-            block-size: 0;
-            overflow-y: clip;
-            transition: content-visibility .3s allow-discrete, block-size .3s;
-        }
-
-        &[open]::details-content {
-            block-size: auto;
-        }
+    @media (width > 576px) {
+      padding: 1.5rem;
     }
 
-    .todo-section__header {
-        position: sticky;
-        top: var(--header-height);
-
-        /* top: 0; */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.5rem;
-        padding: 1rem 2.125rem 1rem 1rem;
-        cursor: pointer;
-        background-color: var(--color-foo);
-        z-index: 10;
-        margin-inline: -1rem;
-        border-radius: 1.75rem;
-        corner-shape: squircle;
-        transition: var(--transition-fast);
-
-        &::before {
-            content: '';
-            position: absolute;
-            inset: -0.125rem 0.25rem;
-            z-index: -1;
-            background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
-            border-radius: inherit;
-            corner-shape: inherit;
-            opacity: 0;
-            transition: var(--transition-fast);
-        }
-
-        &:hover {
-            &::before {
-                opacity: 1;
-            }
-
-            .icon {
-                opacity: 1;
-            }
-        }
-
-        &:active {
-            transform: scale3d(0.99, 0.95, 1);
-        }
-
-        &:focus-visible {
-            outline: 0;
-            box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
-        }
-
-        .icon {
-            opacity: 0.2;
-            transition: var(--transition-fast);
-        }
+    &:open .todo-section__header .icon {
+      transform: rotate(180deg);
     }
 
-    .todo-section__title {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 700;
+    &::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 0.3s allow-discrete,
+        block-size 0.3s;
     }
 
-    .todo-section__items {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+    &[open]::details-content {
+      block-size: auto;
     }
+  }
+
+  .todo-section__header {
+    position: sticky;
+    top: var(--header-height);
+
+    /* top: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 1rem 2.125rem 1rem 1rem;
+    cursor: pointer;
+    background-color: var(--color-foo);
+    z-index: 10;
+    margin-inline: -1rem;
+    border-radius: 1.75rem;
+    corner-shape: squircle;
+    transition: var(--transition-fast);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -0.125rem 0.25rem;
+      z-index: -1;
+      background-color: color-mix(
+        in srgb,
+        var(--color-primary) 5%,
+        var(--color-background) 20%
+      );
+      border-radius: inherit;
+      corner-shape: inherit;
+      opacity: 0;
+      transition: var(--transition-fast);
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+      .icon {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: scale3d(0.99, 0.95, 1);
+    }
+
+    &:focus-visible {
+      outline: 0;
+      box-shadow:
+        0 0 0 1px var(--color-primary),
+        0 0 0 0.25rem
+          color-mix(
+            in srgb,
+            var(--color-primary) 30%,
+            var(--color-background) 80%
+          );
+    }
+
+    .icon {
+      opacity: 0.2;
+      transition: var(--transition-fast);
+    }
+  }
+
+  .todo-section__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+  }
+
+  .todo-section__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 }

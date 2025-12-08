@@ -2,64 +2,83 @@
     interpolate-size: allow-keywords;
   } */
 
-
 @layer me.reset {
-    /*
+  /*
     Modern CSS Reset
     A practical baseline for better web development
     */
 
-    /* 1. More intuitive box-sizing model */
-    *, *::before, *::after {
+  /* 1. More intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-    }
+  }
 
-    /* 2. Remove default margin */
-    *:where() {
+  /* 2. Remove default margin */
+  *:where() {
     margin: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  html {
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
     }
 
-    /* 3. Enable keyword animations */
-    html {
-        @media (prefers-reduced-motion: no-preference) {
-            interpolate-size: allow-keywords;
-        }
+    /* interpolate-size: allow-keywords; */
+  }
 
-        /* interpolate-size: allow-keywords; */
-    }
+  body {
+    margin: 0;
 
-    body {
-        margin: 0;
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
 
-        /* 4. Add accessible line-height */
-        line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
 
-        /* 5. Improve text rendering */
-        -webkit-font-smoothing: antialiased;
-    }
-
-    /* 6. Improve media defaults */
-    img, picture, video, canvas, svg {
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
     display: block;
     max-width: 100%;
-    }
+  }
 
-    /* 7. Inherit fonts for form controls */
-    input, button, textarea, select {
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
     font: inherit;
-    }
+  }
 
-    /* 8. Avoid text overflows */
-    p, h1, h2, h3, h4, h5, h6 {
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow-wrap: break-word;
-    }
+  }
 
-    /* 9. Improve line wrapping */
-    p {
+  /* 9. Improve line wrapping */
+  p {
     text-wrap: pretty;
-    }
+  }
 
-    h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     text-wrap: balance;
-    }
+  }
 }

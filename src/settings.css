@@ -1,35 +1,35 @@
 @layer me.settings {
   :root {
-      --color-primary: #59c832;
-    	--color-text: #222;
-    	--color-text-invert: #ccc;
-	    --color-background: #ddd;
-      --color-danger: #e53e3e;
-      --color-foo: #eee;
-      --color-bar: #f0f0f0;
-      --color-blubb: #fff;
-      --color-black:#000;
-      --color-dark: #222;
-      --color-descent-100: rgb(0 0 0 / 2.5%);
-      --color-descent-200: rgb(0 0 0 / 5%);
-      --color-descent-300: rgb(0 0 0 / 10%);
-      --color-descent-400: rgb(0 0 0 / 15%);
-      --color-descent-500: rgb(0 0 0 / 20%);
-      --color-descent-600: rgb(0 0 0 / 25%);
-      --color-descent-700: rgb(0 0 0 / 30%);
-      --color-descent-800: rgb(0 0 0 / 35%);
-      --color-descent-900: rgb(0 0 0 / 40%);
-      --header-height: 9rem; /* 5.25rem */
-      --todo-list-width: 60rem;
-      --transition-slow: calc(var(--transition-medium) * 1.5);
-      --transition-medium: 0.3s;
-      --transition-fast: calc(var(--transition-medium) / 2);
-      --font-size-md: 0.75rem;
-      --font-size-base: 1rem;
-      --font-size-lg: 1.25rem;
+    --color-primary: #59c832;
+    --color-text: #222;
+    --color-text-invert: #ccc;
+    --color-background: #ddd;
+    --color-danger: #e53e3e;
+    --color-foo: #eee;
+    --color-bar: #f0f0f0;
+    --color-blubb: #fff;
+    --color-black: #000;
+    --color-dark: #222;
+    --color-descent-100: rgb(0 0 0 / 2.5%);
+    --color-descent-200: rgb(0 0 0 / 5%);
+    --color-descent-300: rgb(0 0 0 / 10%);
+    --color-descent-400: rgb(0 0 0 / 15%);
+    --color-descent-500: rgb(0 0 0 / 20%);
+    --color-descent-600: rgb(0 0 0 / 25%);
+    --color-descent-700: rgb(0 0 0 / 30%);
+    --color-descent-800: rgb(0 0 0 / 35%);
+    --color-descent-900: rgb(0 0 0 / 40%);
+    --header-height: 9rem; /* 5.25rem */
+    --todo-list-width: 60rem;
+    --transition-slow: calc(var(--transition-medium) * 1.5);
+    --transition-medium: 0.3s;
+    --transition-fast: calc(var(--transition-medium) / 2);
+    --font-size-md: 0.75rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
   }
 
-  [data-theme="dark"] {
+  [data-theme='dark'] {
     --color-text: #ccc;
     --color-text-invert: #222;
     --color-background: #1a1a1a;
@@ -45,6 +45,5 @@
     --color-descent-700: rgb(255 255 255 / 30%);
     --color-descent-800: rgb(255 255 255 / 35%);
     --color-descent-900: rgb(255 255 255 / 40%);
-
   }
 }

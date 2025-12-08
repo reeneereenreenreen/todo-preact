@@ -1,150 +1,172 @@
 @layer me.component {
-    .todo-item {
-        position: relative;
-        z-index: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 0.5rem;
-        padding-block: 0.5rem;
+  .todo-item {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
 
-        /* &:not(:last-child) {
+    /* &:not(:last-child) {
             border-bottom: 1px solid var(--color-descent-300);
         } */
-        transition: display var(--transition-fast) allow-discrete, transform var(--transition-fast), block-size var(--transition-fast), opacity var(--transition-fast), margin var(--transition-fast);
+    transition:
+      display var(--transition-fast) allow-discrete,
+      transform var(--transition-fast),
+      block-size var(--transition-fast),
+      opacity var(--transition-fast),
+      margin var(--transition-fast);
 
-        @starting-style {
-            block-size: 0;
-            transform: scale3d(0.95, 0.5, 1);
-            opacity: 0;
-        }
+    @starting-style {
+      block-size: 0;
+      transform: scale3d(0.95, 0.5, 1);
+      opacity: 0;
+    }
 
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0.5rem 4.25rem 0.5rem -0.75rem;
+      z-index: -1;
+      background-color: color-mix(
+        in srgb,
+        var(--color-primary) 5%,
+        var(--color-background) 20%
+      );
+      border-radius: 1.75rem;
+      corner-shape: squircle;
+      opacity: 0;
+      transition: var(--transition-medium);
+    }
 
-        &::before {
-            content: '';
-            position: absolute;
-            inset: 0.5rem 4.25rem 0.5rem -0.75rem;
-            z-index: -1;
-            background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%);
-            border-radius: 1.75rem;
-            corner-shape: squircle;
-            opacity: 0;
-            transition: var(--transition-medium);
-        }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
 
-        &:hover {
-            &::before {
+    .button {
+      margin-inline-start: auto;
+    }
+  }
+
+  .todo-item__text {
+    outline: 0;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    corner-shape: squircle;
+    transition: var(--transition-fast);
+
+    &:focus {
+      background-color: var(--color-background);
+      box-shadow:
+        0 0 0 1px var(--color-primary),
+        0 0 0 0.25rem
+          color-mix(
+            in srgb,
+            var(--color-primary) 30%,
+            var(--color-background) 80%
+          );
+    }
+  }
+
+  /* @todo als einzelne Componente auslagern */
+  .field--checkbox {
+    .field__control {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+
+      &:checked {
+        + .field__label {
+          .field__icon {
+            background-color: var(--color-text);
+          }
+
+          .icon {
+            opacity: 1;
+            transform: scale(1);
+            color: var(--color-background);
+          }
+
+          &:hover {
+            & .field__icon {
+              background-color: var(--color-primary);
+
+              .icon {
                 opacity: 1;
+                color: var(--color-background);
+              }
             }
+          }
         }
+      }
 
-        .button {
-            margin-inline-start: auto;
-        }
-    }
-
-    .todo-item__text {
-        outline: 0;
-        padding: 0.5rem;
-        border-radius: 2rem;
-        corner-shape: squircle;
-        transition: var(--transition-fast);
-
-        &:focus {
-            background-color: var(--color-background);
-            box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
-        }
-    }
-
-    /* @todo als einzelne Componente auslagern */
-    .field--checkbox {
-        .field__control {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-
-            &:checked {
-                + .field__label {
-                    .field__icon {
-                        background-color: var(--color-text);
-                    }
-
-                    .icon {
-                        opacity: 1;
-                        transform: scale(1);
-                        color: var(--color-background);
-                    }
-
-                    &:hover {
-                        & .field__icon {
-                            background-color: var(--color-primary);
-
-                            .icon {
-                                opacity: 1;
-                                color: var(--color-background);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &:focus {
-                + .field__label {
-                    .field__icon {
-                        border-color: var(--color-primary);
-                        opacity: 1;
-
-                        .icon {
-                            opacity: 0.5;
-                        }
-                    }
-                }
-            }
-
-            &:focus-visible {
-                + .field__label {
-                    .field__icon {
-                        box-shadow: 0 0 0 1px var(--color-primary), 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 30%, var(--color-background) 80%);
-                        border-color: var(--color-primary);
-                    }
-                }
-            }
-        }
-
-        .field__label {
-            &:hover {
-                .field__icon {
-                    border-color: var(--color-primary);
-                    opacity: 1;
-
-                    .icon {
-                        opacity: 0.5;
-                        color: var(--color-primary);
-                        transform: scale(1);
-                    }
-                }
-            }
-        }
-
-        .field__icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2em;
-            height: 2em;
-            border: 2px solid var(--color-text);
-            background-color: transparent;
-            border-radius: 1rem;
-            corner-shape: squircle;
-            cursor: pointer;
-            opacity: 0.75;
-            transition: var(--transition-medium);
+      &:focus {
+        + .field__label {
+          .field__icon {
+            border-color: var(--color-primary);
+            opacity: 1;
 
             .icon {
-                opacity: 0;
-                transform: scale(0);
-                transition: inherit;
+              opacity: 0.5;
             }
+          }
         }
+      }
+
+      &:focus-visible {
+        + .field__label {
+          .field__icon {
+            box-shadow:
+              0 0 0 1px var(--color-primary),
+              0 0 0 0.25rem
+                color-mix(
+                  in srgb,
+                  var(--color-primary) 30%,
+                  var(--color-background) 80%
+                );
+            border-color: var(--color-primary);
+          }
+        }
+      }
     }
+
+    .field__label {
+      &:hover {
+        .field__icon {
+          border-color: var(--color-primary);
+          opacity: 1;
+
+          .icon {
+            opacity: 0.5;
+            color: var(--color-primary);
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+    .field__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2em;
+      height: 2em;
+      border: 2px solid var(--color-text);
+      background-color: transparent;
+      border-radius: 1rem;
+      corner-shape: squircle;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: var(--transition-medium);
+
+      .icon {
+        opacity: 0;
+        transform: scale(0);
+        transition: inherit;
+      }
+    }
+  }
 }

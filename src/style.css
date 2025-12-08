@@ -1,20 +1,24 @@
 @layer me.layout {
-	:root {
-		font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-		line-height: 1.5;
-		font-weight: 400;
-		color: var(--color-text);
-		background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background) 90%);
-    	background-attachment: fixed;
-		font-synthesis: none;
-		text-rendering: optimizelegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-size-adjust: 100%;
-		caret-color: var(--color-primary);
-		overflow-y: scroll;
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 10%,
+      var(--color-background) 90%
+    );
+    background-attachment: fixed;
+    font-synthesis: none;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    caret-color: var(--color-primary);
+    overflow-y: scroll;
 
-		/* &::search-text {
+    /* &::search-text {
 			background-color: rgba(0, 190, 57, 0.4);
 			color: inherit;
 
@@ -23,27 +27,27 @@
 				text-decoration: underline;
 			}
 		} */
-	}
+  }
 
-	.main {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		gap: 2rem;
-		min-height: 100dvh;
-	}
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+    min-height: 100dvh;
+  }
 
-	.sr-only {
-		position: absolute;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-		clip-path: inset(50%);
-		white-space: nowrap;
-	}
+  .sr-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 
-	::selection {
-		color: #fff;
-		background: var(--color-primary);
-	}
+  ::selection {
+    color: #fff;
+    background: var(--color-primary);
+  }
 }
