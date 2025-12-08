@@ -58,4 +58,8 @@
             opacity: 0.6;
         }
     }
+
+    .logo__do {
+        margin-top: -0.375em;
+    }
 }

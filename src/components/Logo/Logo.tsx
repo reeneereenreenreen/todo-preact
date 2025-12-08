@@ -5,16 +5,11 @@ import './Logo.css'
 const Logo: FunctionComponent = () => {
     return (
         <h1 class="logo">
-            {/* <span class="logo__the">The</span> */}
+            {/* @todo überflüssigen span entfernen */}
             <span class="logo__todo">
-                <span>TO</span>
-                <span>DO</span>
+                <span class="logo__to">TO</span>
+                <span class="logo__do">DO</span>
             </span>
-            {/* <span class="logo__list">List</span> */}
-
-                            {/* <span class="real-logo">
-                                <Icon name="check" size="lg" />
-                            </span> */}
         </h1>
     )
 }
