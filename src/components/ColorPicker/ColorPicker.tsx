@@ -43,9 +43,8 @@ const ColorPicker: FunctionComponent<ColorPickerProps> = ({
       <h3 class="color-picker__title">Primary Color</h3>
       <ul class="color-picker__items">
         {colors.map((color) => (
-          <li class="color-picker__item">
+          <li class="color-picker__item" key={color}>
             <button
-              key={color}
               onClick={() => setSelectedColor(color)}
               aria-label={`Select color ${color}`}
               class={`color-picker__button${color === selectedColor ? ' is-selected' : ''}`}

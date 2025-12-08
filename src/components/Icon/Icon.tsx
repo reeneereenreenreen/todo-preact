@@ -1,6 +1,5 @@
 // @todo sowas entfernen // components/Icon/Icon.tsx
-import { FunctionComponent, JSX } from 'preact';
-import { SVGAttributes } from 'preact';
+import { FunctionComponent, JSX, SVGAttributes } from 'preact';
 import './Icon.css';
 
 interface IconProps extends SVGAttributes<SVGSVGElement> {

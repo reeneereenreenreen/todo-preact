@@ -17,10 +17,10 @@ interface Props {
   todos: Todo[];
   editingId: string | null;
   editText: string;
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
-  onEditStart: (id: string, text: string) => void;
-  onUpdate: (id: string, text: string) => void;
+  onToggle: () => void;
+  onDelete: () => void;
+  onEditStart: () => void;
+  onUpdate: () => void;
   section: 'todo' | 'done';
 }
 

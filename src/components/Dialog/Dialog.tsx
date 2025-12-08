@@ -1,4 +1,5 @@
-import { h, FunctionComponent } from 'preact';
+import * as preact from 'preact';
+import { FunctionComponent } from 'preact';
 import { useRef, useEffect, useCallback, useId } from 'preact/hooks';
 import Icon from '../Icon/Icon';
 import './Dialog.css';
@@ -22,7 +23,7 @@ const Dialog: FunctionComponent<DialogProps> = ({
   initiallyFocused,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const uniqueId = useId ? useId() : Math.random().toString(36).slice(2, 10); // fallback for older Preact
+  const uniqueId = useId();
 
   const titleId = `dialog-title-${uniqueId}`;
   const descId = `dialog-description-${uniqueId}`;

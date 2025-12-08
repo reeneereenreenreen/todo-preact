@@ -7,7 +7,7 @@ import { Button } from '@components/Button';
 import { Icon } from '../Icon';
 
 interface Props {
-  onAdd: (text: string) => void;
+  onAdd: () => void;
   disabled?: boolean;
   placeholder?: string;
 }
@@ -18,7 +18,7 @@ const TodoForm: FunctionComponent<Props> = ({
   placeholder = 'Add new todo...',
 }) => {
   const [input, setInput] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();

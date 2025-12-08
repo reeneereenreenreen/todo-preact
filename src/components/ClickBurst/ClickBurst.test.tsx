@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen } from '@testing-library/preact';
+import { render } from '@testing-library/preact';
 import { fireEvent } from '@testing-library/dom';
 import ClickBurst from './ClickBurst';
 
