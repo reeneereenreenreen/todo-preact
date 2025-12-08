@@ -1,9 +1,9 @@
 // components/TodoItem/TodoItem.tsx
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 import './TodoItem.css';
 
-import { Button } from '@components/Button';
-import { Icon } from '@components/Icon';
+import Button from '../Button/Button';
+import Icon from '../Icon/Icon';
 
 interface Todo {
   id: string;

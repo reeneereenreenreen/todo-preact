@@ -20,9 +20,7 @@ A simple Preact project. Includes scripts for development, production builds, an
 ## Run: Getting Started
 
 - `npm run dev` - Starts a dev server at http://localhost:5173/
-
 - `npm run build` - Builds for production, emitting to `dist/`
-
 - `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
 
 ## Test: Getting Started
@@ -31,10 +29,10 @@ A simple Preact project. Includes scripts for development, production builds, an
 - `npm run test:watch` - Runs tests in watch mode (recommended for development)
 - `npm run test:ui` - Starts the visual UI debugger at http://localhost:148/
 
+
 ## Test: Debugging
 
-- `npx vitest Counter.test.tsx` - Runs only the `Counter.test.tsx` file
-- `npx vitest Counter.test.tsx -t "increments on click"` - Runs only the test case named "increments on click" in `Counter.test.tsx`
+- `npx vitest Badge.test.tsx` - Runs only the `Badge.test.tsx` file
 - `npm run test:coverage` - Runs tests and generates a coverage report
 
 ## Linting

@@ -1,9 +1,9 @@
 // components/TodoForm/TodoForm.tsx
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 import './TodoForm.css';
 
-import { Button } from '@components/Button';
+import Button from '../Button/Button';
 import { Icon } from '../Icon';
 
 interface Props {

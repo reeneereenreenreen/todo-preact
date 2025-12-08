@@ -13,9 +13,10 @@ const DarkmodeToggle: FunctionComponent = () => {
       document.documentElement.setAttribute('data-theme', saved);
     } else {
       setTheme('system');
-      const prefersDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches;
+      let prefersDark = false;
+      if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+        prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
       document.documentElement.setAttribute(
         'data-theme',
         prefersDark ? 'dark' : 'light'
@@ -31,9 +32,10 @@ const DarkmodeToggle: FunctionComponent = () => {
     setTheme(value);
     if (value === 'system') {
       localStorage.removeItem('theme');
-      const prefersDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches;
+      let prefersDark = false;
+      if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+        prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
       document.documentElement.setAttribute(
         'data-theme',
         prefersDark ? 'dark' : 'light'

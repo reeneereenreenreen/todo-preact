@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-import { TodoForm } from '@components/TodoForm';
-import { TodoSection } from '@components/TodoSection';
+import TodoForm from '../TodoForm/TodoForm';
+import TodoSection from '../TodoSection/TodoSection';
 import './TodoList.css';
 import { Dialog } from '../Dialog';
-import { Button } from '@components/Button';
+import Button from '../Button/Button';
 import { ColorPicker } from '../ColorPicker';
 import { DarkmodeToggle } from '../DarkmodeToggle';
 import { MotionSwitch } from '../MotionSwitch';

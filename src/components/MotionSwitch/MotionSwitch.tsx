@@ -8,11 +8,18 @@ const LOCAL_STORAGE_KEY = 'noMotion';
 
 const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
   const [noMotion, setNoMotion] = useState<boolean>(() => {
+    if (typeof window === 'undefined') {
+      // Default to false if not in browser
+      return false;
+    }
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (stored !== null) {
       return stored === 'true';
     }
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery =
+      typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
     return mediaQuery.matches;
   });
 
@@ -26,7 +33,10 @@ const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
   }, [noMotion]);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery =
+      typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
+        : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
     const handler = (event: MediaQueryListEvent) => {
       // Only update if not overridden by localStorage
       if (localStorage.getItem(LOCAL_STORAGE_KEY) === null) {

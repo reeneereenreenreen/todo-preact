@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'preact';
 import './Logo.css';
-// import { Icon } from '../Icon'
 
 const Logo: FunctionComponent = () => {
   return (
