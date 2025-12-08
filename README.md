@@ -27,4 +27,13 @@ A simple Preact project. Includes scripts for development, production builds, an
 -   `npx vitest Counter.test.tsx -t "increments on click"` - Runs only the test case named "increments on click" in `Counter.test.tsx`
 -   `npm run test:coverage` - Runs tests and generates a coverage report
 
+## Linting
+ESLint + Preact/TS, Stylelint for CSS, Prettier (auto-fix)
+
+## Lint: Getting Started
+-   `npm run lint:fix` - Fixes TypeScript/TSX issues and formats code
+-   `npm run stylelint:fix` - Fixes CSS issues
+-   `npm run lint:check` - Checks for lint issues (CI, fails on errors)
+-   `npm run format` - Formats all files with Prettier
+
 
