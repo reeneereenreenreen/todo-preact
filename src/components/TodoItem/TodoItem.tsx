@@ -18,7 +18,7 @@ interface Props {
   onToggle: () => void;
   onDelete: () => void;
   onEditStart: () => void;
-  onUpdate: () => void;
+  onUpdate: (text: string) => void;
   section: 'todo' | 'done';
 }
 

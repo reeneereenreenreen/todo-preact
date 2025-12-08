@@ -1,5 +1,5 @@
 // components/TodoSection/TodoSection.tsx
-import { FunctionComponent } from 'preact';
+import { h, FunctionComponent } from 'preact';
 import TodoItem from '../TodoItem/TodoItem';
 import Badge from '../Badge/Badge';
 import './TodoSection.css';
@@ -17,10 +17,10 @@ interface Props {
   todos: Todo[];
   editingId: string | null;
   editText: string;
-  onToggle: () => void;
-  onDelete: () => void;
-  onEditStart: () => void;
-  onUpdate: () => void;
+  onToggle: (id: string) => void;
+  onDelete: (id: string) => void;
+  onEditStart: (id: string, text: string) => void;
+  onUpdate: (id: string, text: string) => void;
   section: 'todo' | 'done';
 }
 

@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import { Icon } from '../Icon';
 
 interface Props {
-  onAdd: () => void;
+  onAdd: (text: string) => void;
   disabled?: boolean;
   placeholder?: string;
 }
