@@ -1,11 +1,7 @@
 import { render } from 'preact';
-import { Header } from '@components/Header';
-// import { Footer } from '@components/Footer';
-// import { Button } from '@components/Button';
-import { TodoList } from '@components/TodoList';
+import { Header } from './components/Header';
+import { TodoList } from './components/TodoList';
 import { ClickBurst } from './components/ClickBurst';
-
-// import preactLogo from './assets/preact.svg';
 import './settings.css';
 import './reset.css';
 import './font.css';
@@ -17,7 +13,6 @@ export function App() {
       <ClickBurst />
       <Header />
       <TodoList />
-      {/* <Footer /> */}
     </main>
   );
 }

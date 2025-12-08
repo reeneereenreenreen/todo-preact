@@ -1,7 +1,7 @@
 import * as preact from 'preact';
 import { FunctionComponent } from 'preact';
 import { useRef, useEffect, useCallback, useId } from 'preact/hooks';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon';
 import './Dialog.css';
 import { Button } from '../Button';
 

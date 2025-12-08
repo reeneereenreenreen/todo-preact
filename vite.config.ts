@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import preact from '@preact/preset-vite';
 import faviconPlugin from 'vite-plugin-favicon-generator';
-import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -51,10 +50,5 @@ export default defineConfig({
       }
     })
   ],
-  resolve: {
-    alias: {
-      '@components': path.resolve(__dirname, 'src/components'),
-    },
-  },
   assetsInclude: ['**/*.woff2'],
 });
