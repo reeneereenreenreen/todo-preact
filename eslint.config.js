@@ -1,12 +1,12 @@
 import preact from 'eslint-config-preact';
 import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
-import prettier from 'eslint-config-prettier';
+import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
   ...preact,
-  prettier,
+  prettierConfig,
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -18,7 +18,7 @@ export default [
     },
     plugins: {
       '@typescript-eslint': ts,
-      prettier,
+      prettier: prettierPlugin,
     },
     rules: {
       'prettier/prettier': 'error',
