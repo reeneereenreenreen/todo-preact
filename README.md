@@ -2,6 +2,11 @@
 
 A simple Preact project. Includes scripts for development, production builds, and testing.
 
+- Vanilla CSS (no scss)
+- Preact Framework
+
+
+
 ## Quickstart
 
 ### Run
