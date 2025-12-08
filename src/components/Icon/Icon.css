@@ -1,6 +1,7 @@
 @layer me.component {
     .icon {
         display: inline-flex;
+
         /* width: 1.25em; */
         aspect-ratio: 1;
     }

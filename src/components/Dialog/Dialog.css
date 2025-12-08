@@ -7,13 +7,9 @@
     --dialog-top-position: auto;
     --dialog-bottom-position: 0;
     --dialog-horizontal-position: auto;
-    --backdrop-color: lch(from var(--color-black) l c h / 0.35);
+    --backdrop-color: lch(from var(--color-black) l c h / 35%);
     --backdrop-duration: var(--transition-medium);
 
-    border: none;
-    border-radius: 12px;
-    max-width: min(90vw, 500px);
-    max-height: 90vh;
     overflow: hidden;
     background: transparent;
     width: 100%;

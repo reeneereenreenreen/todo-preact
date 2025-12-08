@@ -25,7 +25,6 @@
         border-radius: 2rem;
         corner-shape: squircle;
         outline: none;
-        transition: var(--transition-fast);
         max-width: fit-content;
         margin-bottom: 0.5rem;
         cursor: text;

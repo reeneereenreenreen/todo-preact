@@ -17,6 +17,7 @@
                 animation: spin linear both;
                 animation-timeline: scroll();
                 animation-range: 0 15rem;
+
                 /* transform-origin: 50% 0; */
                 transform-origin: 50% 150%;
             }
@@ -35,7 +36,6 @@
         align-items: center;
         justify-content: space-around;
         flex-direction: column;
-        padding: 0.5rem;
         aspect-ratio: 1;
         font-size: 2.5rem;
         padding: 1rem;

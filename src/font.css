@@ -23,12 +23,15 @@
 		font-weight: 400;
 		cursor: default;
 	}
+
 	/* Use standard CSS properties */
+
 	/* .heading {
 		font-stretch: 75% 125%;
 	} */
 
 	/* Custom axes (if font supports) */
+
 	/* @supports (font-variation-settings: normal) {
 		.custom {
 			font-variation-settings: 'wght' 700, 'slnt' -10;

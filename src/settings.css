@@ -5,33 +5,25 @@
     	--color-text-invert: #ccc;
 	    --color-background: #ddd;
       --color-danger: #e53e3e;
-
       --color-foo: #eee;
       --color-bar: #f0f0f0;
       --color-blubb: #fff;
-
       --color-black:#000;
-
       --color-dark: #222;
-
-      --color-descent-100: rgba(0, 0, 0, 0.025);
-      --color-descent-200: rgba(0, 0, 0, 0.05);
-      --color-descent-300: rgba(0, 0, 0, 0.10);
-      --color-descent-400: rgba(0, 0, 0, 0.15);
-      --color-descent-500: rgba(0, 0, 0, 0.20);
-      --color-descent-600: rgba(0, 0, 0, 0.25);
-      --color-descent-700: rgba(0, 0, 0, 0.30);
-      --color-descent-800: rgba(0, 0, 0, 0.35);
-      --color-descent-900: rgba(0, 0, 0, 0.40);
-
+      --color-descent-100: rgb(0 0 0 / 2.5%);
+      --color-descent-200: rgb(0 0 0 / 5%);
+      --color-descent-300: rgb(0 0 0 / 10%);
+      --color-descent-400: rgb(0 0 0 / 15%);
+      --color-descent-500: rgb(0 0 0 / 20%);
+      --color-descent-600: rgb(0 0 0 / 25%);
+      --color-descent-700: rgb(0 0 0 / 30%);
+      --color-descent-800: rgb(0 0 0 / 35%);
+      --color-descent-900: rgb(0 0 0 / 40%);
       --header-height: 9rem; /* 5.25rem */
       --todo-list-width: 60rem;
-
       --transition-slow: calc(var(--transition-medium) * 1.5);
       --transition-medium: 0.3s;
       --transition-fast: calc(var(--transition-medium) / 2);
-
-
       --font-size-md: 0.75rem;
       --font-size-base: 1rem;
       --font-size-lg: 1.25rem;
@@ -41,20 +33,18 @@
     --color-text: #ccc;
     --color-text-invert: #222;
     --color-background: #1a1a1a;
-
     --color-foo: #111;
     --color-bar: #333;
     --color-blubb: #555;
-
-    --color-descent-100: rgba(255, 255, 255, 0.025);
-    --color-descent-200: rgba(255, 255, 255, 0.05);
-    --color-descent-300: rgba(255, 255, 255, 0.10);
-    --color-descent-400: rgba(255, 255, 255, 0.15);
-    --color-descent-500: rgba(255, 255, 255, 0.20);
-    --color-descent-600: rgba(255, 255, 255, 0.25);
-    --color-descent-700: rgba(255, 255, 255, 0.30);
-    --color-descent-800: rgba(255, 255, 255, 0.35);
-    --color-descent-900: rgba(255, 255, 255, 0.40);
+    --color-descent-100: rgb(255 255 255 / 2.5%);
+    --color-descent-200: rgb(255 255 255 / 5%);
+    --color-descent-300: rgb(255 255 255 / 10%);
+    --color-descent-400: rgb(255 255 255 / 15%);
+    --color-descent-500: rgb(255 255 255 / 20%);
+    --color-descent-600: rgb(255 255 255 / 25%);
+    --color-descent-700: rgb(255 255 255 / 30%);
+    --color-descent-800: rgb(255 255 255 / 35%);
+    --color-descent-900: rgb(255 255 255 / 40%);
 
   }
 }
