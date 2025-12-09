@@ -89,6 +89,12 @@ const TodoList: FunctionComponent = () => {
             const value = (e.target as HTMLElement).innerText;
             localStorage.setItem('todoListTitle', value);
           }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              (e.target as HTMLElement).blur();
+            }
+          }}
         >
           {title}
         </h2>
