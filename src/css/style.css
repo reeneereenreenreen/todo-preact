@@ -1,6 +1,7 @@
 @layer me.layout {
   :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    letter-spacing: 0.2px;
     line-height: 1.5;
     font-weight: 400;
     color: var(--color-text);
@@ -29,6 +30,10 @@
 		} */
   }
 
+  /* body {
+
+  } */
+
   .main {
     display: flex;
     flex-direction: column;
@@ -47,7 +52,7 @@
   }
 
   ::selection {
-    color: #fff;
+    color: var(--color-white); 
     background: var(--color-primary);
   }
 }

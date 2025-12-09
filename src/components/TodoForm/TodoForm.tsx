@@ -1,4 +1,3 @@
-// components/TodoForm/TodoForm.tsx
 import { FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 import './TodoForm.css';

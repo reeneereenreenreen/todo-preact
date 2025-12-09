@@ -3,7 +3,6 @@ import './Button.css';
 import { Icon } from '../Icon';
 
 type ButtonProps = {
-  // @todo add aria-label support
   type?: 'button' | 'submit' | 'reset';
   label?: string;
   icon?: string;

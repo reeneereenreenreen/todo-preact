@@ -1,0 +1,20 @@
+@layer me.layout {
+  /* src/style/fonts.css */
+  @font-face {
+    font-family: 'Google Sans Flex';
+    src: url('/fonts/Google-Sans-Flex.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  h2,
+  h3 {
+    font-weight: 400;
+    cursor: default;
+  }
+}

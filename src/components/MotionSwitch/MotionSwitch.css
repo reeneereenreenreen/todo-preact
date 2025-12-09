@@ -41,8 +41,6 @@
 
       &:checked {
         ~ .field__label .field__indicator {
-          /* background-color: var(--color-primary);
-                    border-color: var(--color-primary); */
           background-color: color-mix(
             in srgb,
             var(--color-primary) 15%,
@@ -56,48 +54,15 @@
 
           &::before {
             transform: translateX(calc(50% - 0.25rem));
-
-            /* background-color: var(--color-background); */
           }
         }
       }
 
       &:focus-visible {
         ~ .field__label .field__indicator {
-          box-shadow:
-            0 0 0 1px var(--color-primary),
-            0 0 0 0.25rem
-              color-mix(
-                in srgb,
-                var(--color-primary) 30%,
-                var(--color-background) 80%
-              );
-
-          /* border-color: var(--color-primary); */
+          box-shadow: var(--shadow-focus);
         }
       }
-
-      /* &:focus {
-                ~ .field__label .field__indicator {
-                    box-shadow: 0 0 0 2px var(--color-primary);
-                }
-            } */
-
-      /* &[disabled] {
-                ~ .field__label {
-                    cursor: not-allowed;
-
-                    .field__indicator {
-                        background-color: var(--color-descent-200);
-                        border-color: var(--color-descent-200);
-                        box-shadow: 0 0 0 2px var(--color-descent-200);
-
-                        &::before {
-                            background-color: var(--color-descent-400);
-                        }
-                    }
-                }
-            } */
     }
 
     /* stylelint-disable no-descending-specificity */
@@ -132,10 +97,6 @@
       border-width: 3px;
       border-style: solid;
       border-color: transparent;
-
-      /* border-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
-
-      /* background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-background) 20%); */
       box-shadow: 0 0 0 1px var(--color-primary);
       transition: all 0.6s;
 

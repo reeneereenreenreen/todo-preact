@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from 'vitest';
-import { h } from 'preact';
 import { render, screen, fireEvent } from '@testing-library/preact';
 import TodoSection from './TodoSection';
 

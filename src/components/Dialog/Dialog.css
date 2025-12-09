@@ -1,27 +1,19 @@
 @layer me.component {
   .dialog {
+    /* @todo aufräumen */
     --dialog-max-width: 40rem;
     --dialog-transform: translateY(100%);
     --dialog-duration: var(--transition-medium);
-    --dialog-border-radius: var(--radius) var(--radius) 0 0;
-    --dialog-top-position: auto;
-    --dialog-bottom-position: 0;
-    --dialog-horizontal-position: auto;
     --backdrop-color: lch(from var(--color-black) l c h / 35%);
     --backdrop-duration: var(--transition-medium);
 
     overflow: hidden;
-    background: transparent;
+    background-color: transparent;
     width: 100%;
     max-height: calc(100% - 5rem);
     max-width: var(--dialog-max-width);
-    margin-top: var(--dialog-top-position, auto);
-    margin-bottom: var(--dialog-bottom-position, auto);
-    margin-right: var(--dialog-horizontal-position, auto);
+    margin-bottom: 0;
     padding: 0;
-    border-radius: var(--dialog-border-radius);
-    box-shadow: var(--shadow-lg);
-    background-color: var(--color-white);
     border: 0;
     transition:
       display var(--dialog-duration) allow-discrete,

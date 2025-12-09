@@ -114,14 +114,7 @@
 
     &:focus-visible {
       outline: 0;
-      box-shadow:
-        0 0 0 1px var(--color-primary),
-        0 0 0 0.25rem
-          color-mix(
-            in srgb,
-            var(--color-primary) 30%,
-            var(--color-background) 80%
-          );
+      box-shadow: var(--shadow-focus);
     }
 
     /* stylelint-disable no-descending-specificity */

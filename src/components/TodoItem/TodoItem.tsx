@@ -1,4 +1,3 @@
-// components/TodoItem/TodoItem.tsx
 import { FunctionComponent } from 'preact';
 import './TodoItem.css';
 

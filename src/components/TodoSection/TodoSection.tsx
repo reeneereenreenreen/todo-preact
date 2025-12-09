@@ -1,5 +1,4 @@
-// components/TodoSection/TodoSection.tsx
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 import TodoItem from '../TodoItem/TodoItem';
 import Badge from '../Badge/Badge';
 import './TodoSection.css';

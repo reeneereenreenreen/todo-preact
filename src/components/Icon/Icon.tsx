@@ -1,4 +1,3 @@
-// @todo sowas entfernen // components/Icon/Icon.tsx
 import { FunctionComponent, JSX, SVGAttributes } from 'preact';
 import './Icon.css';
 
@@ -161,7 +160,6 @@ const Icon: FunctionComponent<IconProps> = ({ name, size = 'md' }) => {
     );
   }
 
-  // FIXED: Render directly, don't use as component
   return (
     <span
       class={`icon icon-${name} icon-${size}`}
