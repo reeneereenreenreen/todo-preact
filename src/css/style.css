@@ -30,10 +30,6 @@
 		} */
   }
 
-  /* body {
-
-  } */
-
   .main {
     display: flex;
     flex-direction: column;
@@ -52,7 +48,7 @@
   }
 
   ::selection {
-    color: var(--color-white); 
+    color: var(--color-white);
     background: var(--color-primary);
   }
 }

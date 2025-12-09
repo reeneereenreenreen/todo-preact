@@ -10,15 +10,9 @@
       content="A simple TODO list app built with Preact and TypeScript."
     />
     <title>The TODO list</title>
-
-    <!-- @todo workaround -->
-    <style>
-      @layer me {
-        @layer settings, reset, layout, component, override;
-      }
-    </style>
+    <link rel="stylesheet" href="/src/css/critical.css" />
   </head>
-  <body>
+  <body class="app-not-ready">
     <div id="app" class="app"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>

@@ -19,3 +19,8 @@ export function App() {
 }
 
 render(<App />, document.getElementById('app'));
+
+// Ensure fade-in triggers after mount/paint
+window.requestAnimationFrame(() => {
+  document.body.classList.remove('app-not-ready');
+});

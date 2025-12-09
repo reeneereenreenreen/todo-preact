@@ -1,0 +1,27 @@
+@layer me {
+  @layer settings, reset, layout, component, override;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 450ms ease-out, transform 450ms ease-out;
+
+  &.app-not-ready {
+    opacity: 0;
+    transform: translateY(1rem);
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
