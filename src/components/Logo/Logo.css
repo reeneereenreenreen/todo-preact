@@ -66,6 +66,10 @@
     width: 10rem;
     height: 10rem;
     margin-bottom: 7rem;
+
+    span {
+      display: flex;
+    }
   }
 
   .octopus__spots {
