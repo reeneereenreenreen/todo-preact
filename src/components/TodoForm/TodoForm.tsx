@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import { Icon } from '../Icon';
 
 interface Props {
+  // eslint-disable-next-line no-unused-vars
   onAdd: (input: string, description?: string, date?: string) => void;
   disabled?: boolean;
   placeholder?: string;

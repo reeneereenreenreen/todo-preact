@@ -19,7 +19,7 @@ describe('TodoForm', () => {
     fireEvent.input(input, { target: { value: 'Test todo' } });
     fireEvent.submit(input.closest('form')!);
 
-    expect(onAdd).toHaveBeenCalledWith('Test todo');
+    expect(onAdd).toHaveBeenCalledWith('Test todo', '', '');
     expect(input).toHaveValue('');
   });
 

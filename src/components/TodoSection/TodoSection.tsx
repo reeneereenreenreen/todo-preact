@@ -16,9 +16,13 @@ interface Props {
   todos: Todo[];
   editingId: string | null;
   editText: string;
+  // eslint-disable-next-line no-unused-vars
   onToggle: (id: string) => void;
+  // eslint-disable-next-line no-unused-vars
   onDelete: (id: string) => void;
+  // eslint-disable-next-line no-unused-vars
   onEditStart: (id: string, text: string) => void;
+  // eslint-disable-next-line no-unused-vars
   onUpdate: (id: string, text: string) => void;
   section: 'todo' | 'done';
 }

@@ -17,7 +17,7 @@ describe('TodoItem', () => {
     onDelete: vi.fn(),
     onEditStart: vi.fn(),
     onUpdate: vi.fn(),
-    section: 'todo' as const,
+    section: 'todo' as 'todo',
   };
 
   it('renders todo text', () => {
@@ -49,7 +49,11 @@ describe('TodoItem', () => {
     fireEvent.blur(getByText('Editing...'), {
       target: { innerText: 'Updated' },
     });
-    expect(props.onUpdate).toHaveBeenCalledWith('Updated');
+    expect(props.onUpdate).toHaveBeenCalledWith(
+      'Updated',
+      undefined,
+      undefined
+    );
   });
 
   it('calls onUpdate on Enter key', () => {
@@ -59,7 +63,11 @@ describe('TodoItem', () => {
       key: 'Enter',
       target: { innerText: 'Updated' },
     });
-    expect(props.onUpdate).toHaveBeenCalledWith('Updated');
+    expect(props.onUpdate).toHaveBeenCalledWith(
+      'Updated',
+      undefined,
+      undefined
+    );
   });
 
   it('calls onEditStart on Escape key', () => {
@@ -82,7 +90,7 @@ describe('TodoItem', () => {
   });
 
   it('renders correct sr-only text for section', () => {
-    const props = { ...defaultProps, section: 'done' };
+    const props = { ...defaultProps, section: 'done' as 'done' };
     const { getByText } = render(<TodoItem {...props} />);
     expect(getByText(`Undone: ${todo.text}`)).toBeTruthy();
   });

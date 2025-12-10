@@ -19,6 +19,7 @@ interface Props {
   onToggle: () => void;
   onDelete: () => void;
   onEditStart: () => void;
+  // eslint-disable-next-line no-unused-vars
   onUpdate: (text: string, description?: string, date?: string) => void;
   section: 'todo' | 'done';
 }
