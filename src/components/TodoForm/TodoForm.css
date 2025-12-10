@@ -53,6 +53,11 @@
     }
   }
 
+  .todo-form__actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
   .field-group {
     position: relative;
     display: flex;

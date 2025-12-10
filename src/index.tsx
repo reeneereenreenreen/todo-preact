@@ -7,6 +7,7 @@ import './css/reset.css';
 import './css/font.css';
 import './css/style.css';
 import './css/field-checkbox.css';
+import './css/field-select.css';
 
 export function App() {
   return (

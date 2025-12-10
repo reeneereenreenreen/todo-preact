@@ -114,10 +114,11 @@ const TodoList: FunctionComponent = () => {
 
   return (
     <div class="todo-list">
-      <div class="todo-list__profiles">
-        <label htmlFor="profile-select">Profile:</label>
+      <div class="field field--select">
+        <label htmlFor="profile-select" class="field__label">Profile:</label>
         <select
           id="profile-select"
+          class="field__control"
           value={profile}
           onChange={e => setProfile((e.target as HTMLSelectElement).value)}
         >

@@ -49,8 +49,9 @@
 
   .todo-item__content {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+    align-items: center;
   }
 
   .todo-item__text,
@@ -83,10 +84,10 @@
   }
 
   .todo-item__date--soon {
-    color: orange;
+    color: var(--color-warning);
   }
 
   .todo-item__date--past {
-    color: red;
+    color: var(--color-danger);
   }
 }
