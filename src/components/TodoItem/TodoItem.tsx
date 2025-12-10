@@ -19,7 +19,7 @@ interface Props {
   onToggle: () => void;
   onDelete: () => void;
   onEditStart: () => void;
-  onUpdate: (text: string) => void;
+  onUpdate: (text: string, description?: string, date?: string) => void;
   section: 'todo' | 'done';
 }
 
@@ -55,30 +55,61 @@ const TodoItem: FunctionComponent<Props> = ({
           </span>
         </label>
       </div>
-      <span
-        class={`todo-item__text ${todo.completed ? 'completed' : ''}`}
-        contentEditable
-        autoFocus={isEditing}
-        onBlur={(e: any) => onUpdate(e.target.innerText)}
-        onKeyDown={(e: any) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            onUpdate(e.target.innerText);
-            (e.target as HTMLElement).blur();
-          }
-          if (e.key === 'Escape') {
-            onEditStart();
-          }
-        }}
-      >
-        {isEditing ? editText : todo.text}
-      </span>
-      {todo.description && todo.description.trim() !== '' && (
-        <div class="todo-item__description">{todo.description}</div>
-      )}
-      {todo.date && todo.date.trim() !== '' && (
-        <div class="todo-item__date">{todo.date}</div>
-      )}
+      <div class="todo-item__content">
+        {todo.date && (() => {
+          const today = new Date();
+          let dateClass = '';
+          try {
+            const todoDate = new Date(todo.date);
+            todoDate.setHours(0,0,0,0);
+            today.setHours(0,0,0,0);
+            const diff = (todoDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
+            if (diff < 0) {
+              dateClass = 'todo-item__date--past';
+            } else if (diff <= 2) {
+              dateClass = 'todo-item__date--soon';
+            }
+          } catch {}
+          return <span class={`todo-item__date ${dateClass}`}>{todo.date}</span>;
+        })()}
+        <span
+          class={`todo-item__text ${todo.completed ? 'completed' : ''}`}
+          contentEditable
+          autoFocus={isEditing}
+          onBlur={(e: any) => onUpdate(e.target.innerText, todo.description, todo.date)}
+          onKeyDown={(e: any) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              onUpdate(e.target.innerText, todo.description, todo.date);
+              (e.target as HTMLElement).blur();
+            }
+            if (e.key === 'Escape') {
+              onEditStart();
+            }
+          }}
+        >
+          {isEditing ? editText : todo.text}
+        </span>
+        {todo.description && (
+          <span
+            class="todo-item__description"
+            contentEditable
+            onBlur={(e: any) => onUpdate(todo.text, e.target.innerText, todo.date)}
+            onKeyDown={(e: any) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                onUpdate(todo.text, e.target.innerText, todo.date);
+                (e.target as HTMLElement).blur();
+              }
+              if (e.key === 'Escape') {
+                onEditStart();
+              }
+            }}
+          >
+            {todo.description}
+          </span>
+        )}
+      </div>
       <Button
         icon="trash"
         ariaLabel="Delete todo"

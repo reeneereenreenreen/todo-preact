@@ -90,7 +90,7 @@ const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string, dat
           ariaLabel="Add to todo list"
           disabled={!input.trim() || disabled}
           variant="primary"
-          appearance="ghost"
+          appearance="solid"
         />
       </div>
     </form>

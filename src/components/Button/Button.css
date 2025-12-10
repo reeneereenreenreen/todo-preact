@@ -44,6 +44,7 @@
   }
 
   .button--solid {
+    color: var(--color-black);
     background-color: var(--color-primary);
     border-color: transparent;
   }
