@@ -1,4 +1,3 @@
-// src/components/Clickburst.tsx
 import { FunctionComponent } from 'preact';
 import { useRef, useEffect } from 'preact/hooks';
 import './ClickBurst.css';
@@ -15,9 +14,13 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
     const createBurst = (x: number, y: number) => {
       const burst = document.createElement('div');
       burst.className = 'burst';
-      burst.style.left = `${x}px`;
-      burst.style.top = `${y}px`;
-
+      // Adjust for scroll position
+      const scrollLeft =
+        window.pageXOffset || document.documentElement.scrollLeft;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      burst.style.left = `${x + scrollLeft}px`;
+      burst.style.top = `${y + scrollTop}px`;
       // Create 4 comic particles
       for (let i = 0; i < 4; i++) {
         const particle = document.createElement('span');
@@ -47,19 +50,19 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
     };
 
     document.addEventListener('click', handleClick, { passive: true });
-    document.addEventListener(
-      'touchstart',
-      (e: TouchEvent) => {
-        e.preventDefault();
-        const touch = e.touches[0];
-        createBurst(touch.clientX, touch.clientY);
-      },
-      { passive: false }
-    );
+
+    const handleTouchStart = (e: TouchEvent) => {
+      // Only prevent default if the target is the container itself (optional)
+      // if (e.target === container) e.preventDefault();
+      const touch = e.touches[0];
+      createBurst(touch.clientX, touch.clientY);
+    };
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
 
     return () => {
       document.removeEventListener('click', handleClick);
-      document.removeEventListener('touchstart', handleClick as any);
+      document.removeEventListener('touchstart', handleTouchStart);
     };
   }, []);
 

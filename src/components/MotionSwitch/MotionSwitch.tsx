@@ -19,7 +19,11 @@ const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
     const mediaQuery =
       typeof window !== 'undefined' && typeof window.matchMedia === 'function'
         ? window.matchMedia('(prefers-reduced-motion: reduce)')
-        : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
+        : {
+            matches: false,
+            addEventListener: () => {},
+            removeEventListener: () => {},
+          };
     return mediaQuery.matches;
   });
 
@@ -36,7 +40,11 @@ const MotionSwitch: FunctionComponent<MotionSwitchProps> = () => {
     const mediaQuery =
       typeof window !== 'undefined' && typeof window.matchMedia === 'function'
         ? window.matchMedia('(prefers-reduced-motion: reduce)')
-        : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
+        : {
+            matches: false,
+            addEventListener: () => {},
+            removeEventListener: () => {},
+          };
     const handler = (event: MediaQueryListEvent) => {
       // Only update if not overridden by localStorage
       if (localStorage.getItem(LOCAL_STORAGE_KEY) === null) {

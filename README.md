@@ -1,13 +1,18 @@
-# The TODO List
+# 📋 The TODO List
 
 A simple Preact project. Includes scripts for development, production builds, and testing.
 
 - Vanilla CSS (no scss)
 - Preact Framework
 
+⚠️ Some features used in this project are not yet supported in all browsers.
+- corner-shape
+- animation-timeline: scroll()
+- clip-path: shape()
+- transition-behavior: allow-discrete
 
 
-## Quickstart
+## 📢 Quickstart
 
 ### Run
 
@@ -28,7 +33,6 @@ A simple Preact project. Includes scripts for development, production builds, an
 - `npm run test` - Runs tests once and exits
 - `npm run test:watch` - Runs tests in watch mode (recommended for development)
 - `npm run test:ui` - Starts the visual UI debugger at http://localhost:148/
-
 
 ## Test: Debugging
 

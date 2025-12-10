@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     preact(),
     faviconPlugin({
-      source: 'public/todo.png',  // ← Your logo (512x512+)
+      source: 'public/todo.png', // ← Your logo (512x512+)
       appName: 'The TODO List',
       // appShortName: 'TODOApp',
       // appDescription: 'A simple PWA for managing your tasks',
@@ -20,8 +20,8 @@ export default defineConfig({
         favicons: true,
         appleStartup: false,
         windows: false,
-        yandex: false
-      }
+        yandex: false,
+      },
     }),
     VitePWA({
       registerType: 'autoUpdate',
@@ -47,8 +47,8 @@ export default defineConfig({
         //     type: 'image/png'
         //   }
         // ]
-      }
-    })
+      },
+    }),
   ],
   assetsInclude: ['**/*.woff2'],
 });

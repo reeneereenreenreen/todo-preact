@@ -14,7 +14,10 @@ const DarkmodeToggle: FunctionComponent = () => {
     } else {
       setTheme('system');
       let prefersDark = false;
-      if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      if (
+        typeof window !== 'undefined' &&
+        typeof window.matchMedia === 'function'
+      ) {
         prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
       document.documentElement.setAttribute(
@@ -33,7 +36,10 @@ const DarkmodeToggle: FunctionComponent = () => {
     if (value === 'system') {
       localStorage.removeItem('theme');
       let prefersDark = false;
-      if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      if (
+        typeof window !== 'undefined' &&
+        typeof window.matchMedia === 'function'
+      ) {
         prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
       document.documentElement.setAttribute(

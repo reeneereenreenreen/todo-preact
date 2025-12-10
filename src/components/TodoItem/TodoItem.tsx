@@ -60,12 +60,12 @@ const TodoItem: FunctionComponent<Props> = ({
         onBlur={(e: any) => onUpdate(e.target.innerText)}
         onKeyDown={(e: any) => {
           if (e.key === 'Enter') {
-        e.preventDefault();
-        onUpdate(e.target.innerText);
-        (e.target as HTMLElement).blur();
+            e.preventDefault();
+            onUpdate(e.target.innerText);
+            (e.target as HTMLElement).blur();
           }
           if (e.key === 'Escape') {
-        onEditStart();
+            onEditStart();
           }
         }}
       >

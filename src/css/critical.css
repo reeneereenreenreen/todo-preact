@@ -11,7 +11,9 @@ body {
 body {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 450ms ease-out, transform 450ms ease-out;
+  transition:
+    opacity 450ms ease-out,
+    transform 450ms ease-out;
 
   &.app-not-ready {
     opacity: 0;
@@ -24,4 +26,3 @@ body {
     }
   }
 }
-

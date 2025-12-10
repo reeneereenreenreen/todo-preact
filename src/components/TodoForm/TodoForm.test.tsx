@@ -6,7 +6,9 @@ describe('TodoForm', () => {
   it('renders input and button', () => {
     render(<TodoForm onAdd={vi.fn()} />);
     expect(screen.getByPlaceholderText('Add new todo...')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /add to todo list/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /add to todo list/i })
+    ).toBeInTheDocument();
   });
 
   it('calls onAdd with input value and clears input', () => {
@@ -41,7 +43,9 @@ describe('TodoForm', () => {
 
   it('uses custom placeholder if provided', () => {
     render(<TodoForm onAdd={vi.fn()} placeholder="Custom placeholder" />);
-    expect(screen.getByPlaceholderText('Custom placeholder')).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText('Custom placeholder')
+    ).toBeInTheDocument();
   });
 
   it('button is disabled when input is empty', () => {

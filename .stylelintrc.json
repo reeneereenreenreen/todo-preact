@@ -6,9 +6,7 @@
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": [
-          "corner-shape"
-        ]
+        "ignoreProperties": ["corner-shape"]
       }
     ],
     "plugin/selector-bem-pattern": {

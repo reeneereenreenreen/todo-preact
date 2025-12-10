@@ -7,9 +7,15 @@ describe('MotionSwitch', () => {
     let store: Record<string, string> = {};
     return {
       getItem: (key: string) => store[key] ?? null,
-      setItem: (key: string, value: string) => { store[key] = value; },
-      clear: () => { store = {}; },
-      removeItem: (key: string) => { delete store[key]; },
+      setItem: (key: string, value: string) => {
+        store[key] = value;
+      },
+      clear: () => {
+        store = {};
+      },
+      removeItem: (key: string) => {
+        delete store[key];
+      },
     };
   })();
 
@@ -52,7 +58,9 @@ describe('MotionSwitch', () => {
     expect(document.documentElement.classList.contains('no-motion')).toBe(true);
     fireEvent.click(checkbox);
     expect(localStorage.getItem('noMotion')).toBe('false');
-    expect(document.documentElement.classList.contains('no-motion')).toBe(false);
+    expect(document.documentElement.classList.contains('no-motion')).toBe(
+      false
+    );
   });
 
   it('respects localStorage value on initial render', () => {

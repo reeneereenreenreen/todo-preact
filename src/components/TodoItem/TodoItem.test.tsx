@@ -46,14 +46,19 @@ describe('TodoItem', () => {
   it('calls onUpdate on blur', () => {
     const props = { ...defaultProps, editingId: '1', editText: 'Editing...' };
     const { getByText } = render(<TodoItem {...props} />);
-    fireEvent.blur(getByText('Editing...'), { target: { innerText: 'Updated' } });
+    fireEvent.blur(getByText('Editing...'), {
+      target: { innerText: 'Updated' },
+    });
     expect(props.onUpdate).toHaveBeenCalledWith('Updated');
   });
 
   it('calls onUpdate on Enter key', () => {
     const props = { ...defaultProps, editingId: '1', editText: 'Editing...' };
     const { getByText } = render(<TodoItem {...props} />);
-    fireEvent.keyDown(getByText('Editing...'), { key: 'Enter', target: { innerText: 'Updated' } });
+    fireEvent.keyDown(getByText('Editing...'), {
+      key: 'Enter',
+      target: { innerText: 'Updated' },
+    });
     expect(props.onUpdate).toHaveBeenCalledWith('Updated');
   });
 
