@@ -8,6 +8,7 @@ interface Todo {
   id: string;
   text: string;
   description?: string;
+  date?: string;
   completed: boolean;
 }
 
@@ -74,6 +75,9 @@ const TodoItem: FunctionComponent<Props> = ({
       </span>
       {todo.description && todo.description.trim() !== '' && (
         <div class="todo-item__description">{todo.description}</div>
+      )}
+      {todo.date && todo.date.trim() !== '' && (
+        <div class="todo-item__date">{todo.date}</div>
       )}
       <Button
         icon="trash"

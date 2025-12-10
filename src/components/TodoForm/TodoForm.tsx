@@ -6,28 +6,31 @@ import Button from '../Button/Button';
 import { Icon } from '../Icon';
 
 interface Props {
-  onAdd: (text: string, description?: string) => void;
+  onAdd: (text: string, description?: string, date?: string) => void;
   disabled?: boolean;
   placeholder?: string;
 }
 
 
-const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string }> = ({
+const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string, datePlaceholder?: string }> = ({
   onAdd,
   disabled,
   placeholder = 'Add new todo...',
   descriptionPlaceholder = 'Description (optional)',
+  datePlaceholder = 'Date (optional)',
 }) => {
   const [input, setInput] = useState('');
   const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
 
     if (input.trim()) {
-      onAdd(input, description);
+      onAdd(input, description, date);
       setInput('');
       setDescription('');
+      setDate('');
     }
   };
 
@@ -62,6 +65,21 @@ const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string }> =
             autoComplete="off"
             onInput={(e: any) => setDescription(e.target.value)}
             placeholder={descriptionPlaceholder}
+            disabled={disabled}
+          />
+        </div>
+        <div class="field field--text">
+          <label for="todo-date" class="field__label">
+            <span class="sr-only">Date</span>
+          </label>
+          <input
+            id="todo-date"
+            type="date"
+            class="field__input"
+            value={date}
+            autoComplete="off"
+            onInput={(e: any) => setDate(e.target.value)}
+            placeholder={datePlaceholder}
             disabled={disabled}
           />
         </div>

@@ -13,6 +13,7 @@ interface Todo {
   id: string;
   text: string;
   description?: string;
+  date?: string;
   completed: boolean;
 }
 
@@ -27,11 +28,12 @@ const TodoList: FunctionComponent = () => {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        // Ensure backward compatibility: if description is missing, set to ''
+        // Ensure backward compatibility: if description/date is missing, set to ''
         setTodos(
           parsed.map((todo: any) => ({
             ...todo,
             description: typeof todo.description === 'string' ? todo.description : '',
+            date: typeof todo.date === 'string' ? todo.date : '',
           }))
         );
       } catch {
@@ -44,9 +46,9 @@ const TodoList: FunctionComponent = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (text: string, description?: string) => {
+  const addTodo = (text: string, description?: string, date?: string) => {
     setTodos([
-      { id: crypto.randomUUID(), text, description, completed: false },
+      { id: crypto.randomUUID(), text, description, date, completed: false },
       ...todos,
     ]);
   };
