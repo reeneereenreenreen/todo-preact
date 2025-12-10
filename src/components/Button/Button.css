@@ -51,8 +51,6 @@
 
   .button--primary {
     --button-hover-color: var(--color-black);
-    --button-hover-bg: var(--color-primary);
-
     --button-hover-bg: color-mix(
       in srgb,
       var(--color-primary) 70%,

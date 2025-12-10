@@ -36,13 +36,11 @@
     --font-size-md: 0.75rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.25rem;
-
     --octopus-color: color-mix(
       in srgb,
       var(--color-primary) 75%,
       var(--color-background) 25%
     );
-
     --shadow-focus:
       0 0 0 1px var(--color-primary),
       0 0 0 0.25rem
@@ -51,7 +49,6 @@
           var(--color-primary) 30%,
           var(--color-background) 80%
         );
-
     --color-scheme: light;
   }
 
@@ -69,7 +66,6 @@
     --color-descent-700: rgb(255 255 255 / 30%);
     --color-descent-800: rgb(255 255 255 / 35%);
     --color-descent-900: rgb(255 255 255 / 40%);
-
     --color-ascent-100: rgb(0 0 0 / 2.5%);
     --color-ascent-200: rgb(0 0 0 / 5%);
     --color-ascent-300: rgb(0 0 0 / 10%);
@@ -79,7 +75,6 @@
     --color-ascent-700: rgb(0 0 0 / 30%);
     --color-ascent-800: rgb(0 0 0 / 35%);
     --color-ascent-900: rgb(0 0 0 / 40%);
-
     --color-scheme: dark;
   }
 }

@@ -27,7 +27,9 @@
 
   .todo-list__title {
     position: relative;
+
     /* z-index: 30; */
+
     /* margin: auto; */
     font-size: var(--font-size-lg);
     text-align: center;

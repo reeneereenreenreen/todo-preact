@@ -10,7 +10,7 @@
       background-color: var(--color-ascent-600);
       border: 1px solid var(--color-descent-500);
       outline: 0;
-      -moz-appearance: textfield;
+      appearance: textfield;
       transition: var(--transition-fast);
 
       &:hover {
