@@ -17,18 +17,27 @@ interface Todo {
   completed: boolean;
 }
 
+const defaultProfiles = [
+  { id: 'default', name: 'Default' },
+  { id: 'work', name: 'Work' },
+  { id: 'personal', name: 'Personal' },
+];
+
 const TodoList: FunctionComponent = () => {
+  const [profile, setProfile] = useState<string>('default');
+  const [profiles, setProfiles] = useState<{ id: string; name: string }[]>(defaultProfiles);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
 
 
+  // Load todos for the selected profile
   useEffect(() => {
-    const saved = localStorage.getItem('todos');
+    const key = `todos_${profile}`;
+    const saved = localStorage.getItem(key);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        // Ensure backward compatibility: if description/date is missing, set to ''
         setTodos(
           parsed.map((todo: any) => ({
             ...todo,
@@ -39,12 +48,16 @@ const TodoList: FunctionComponent = () => {
       } catch {
         setTodos([]);
       }
+    } else {
+      setTodos([]);
     }
-  }, []);
+  }, [profile]);
 
+  // Save todos for the selected profile
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+    const key = `todos_${profile}`;
+    localStorage.setItem(key, JSON.stringify(todos));
+  }, [todos, profile]);
 
   const addTodo = (text: string, description?: string, date?: string) => {
     setTodos([
@@ -70,9 +83,13 @@ const TodoList: FunctionComponent = () => {
     setEditText(text);
   };
 
-  const [title, setTitle] = useState(
-    localStorage.getItem('todoListTitle') || 'My Todo List'
-  );
+  const [title, setTitle] = useState('My Todo List');
+
+  // Load title for the selected profile
+  useEffect(() => {
+    const key = `todoListTitle_${profile}`;
+    setTitle(localStorage.getItem(key) || 'My Todo List');
+  }, [profile]);
 
   const updateTodo = (id: string, text: string) => {
     if (!text.trim()) {
@@ -97,17 +114,31 @@ const TodoList: FunctionComponent = () => {
 
   return (
     <div class="todo-list">
+      <div class="todo-list__profiles">
+        <label htmlFor="profile-select">Profile:</label>
+        <select
+          id="profile-select"
+          value={profile}
+          onChange={e => setProfile((e.target as HTMLSelectElement).value)}
+        >
+          {profiles.map(p => (
+            <option key={p.id} value={p.id}>{p.name}</option>
+          ))}
+        </select>
+      </div>
       <div class="todo-list__content">
         <h2
           class="todo-list__title"
           contentEditable
           onInput={(e) => {
             const value = (e.target as HTMLElement).innerText;
-            localStorage.setItem('todoListTitle', value);
+            setTitle(value);
+            localStorage.setItem(`todoListTitle_${profile}`, value);
           }}
           onBlur={(e) => {
             const value = (e.target as HTMLElement).innerText;
-            localStorage.setItem('todoListTitle', value);
+            setTitle(value);
+            localStorage.setItem(`todoListTitle_${profile}`, value);
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
