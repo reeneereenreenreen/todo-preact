@@ -7,6 +7,7 @@ import Icon from '../Icon/Icon';
 interface Todo {
   id: string;
   text: string;
+  description?: string;
   completed: boolean;
 }
 
@@ -71,6 +72,9 @@ const TodoItem: FunctionComponent<Props> = ({
       >
         {isEditing ? editText : todo.text}
       </span>
+      {todo.description && todo.description.trim() !== '' && (
+        <div class="todo-item__description">{todo.description}</div>
+      )}
       <Button
         icon="trash"
         ariaLabel="Delete todo"

@@ -12,6 +12,7 @@ import { MotionSwitch } from '../MotionSwitch';
 interface Todo {
   id: string;
   text: string;
+  description?: string;
   completed: boolean;
 }
 
@@ -20,17 +21,34 @@ const TodoList: FunctionComponent = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
 
+
   useEffect(() => {
     const saved = localStorage.getItem('todos');
-    if (saved) setTodos(JSON.parse(saved));
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        // Ensure backward compatibility: if description is missing, set to ''
+        setTodos(
+          parsed.map((todo: any) => ({
+            ...todo,
+            description: typeof todo.description === 'string' ? todo.description : '',
+          }))
+        );
+      } catch {
+        setTodos([]);
+      }
+    }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (text: string) => {
-    setTodos([{ id: crypto.randomUUID(), text, completed: false }, ...todos]);
+  const addTodo = (text: string, description?: string) => {
+    setTodos([
+      { id: crypto.randomUUID(), text, description, completed: false },
+      ...todos,
+    ]);
   };
 
   const toggleTodo = (id: string) => {
