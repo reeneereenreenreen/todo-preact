@@ -87,11 +87,11 @@
   }
 
   .todo-item__date--soon {
-    color: var(--color-warning);
+    border-color: var(--color-warning);
   }
 
   .todo-item__date--past {
-    color: var(--color-danger);
+    border-color: var(--color-danger);
   }
   /* stylelint-enable no-descending-specificity */
 }

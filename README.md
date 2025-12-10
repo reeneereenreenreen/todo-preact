@@ -5,12 +5,18 @@ A simple Preact project. Includes scripts for development, production builds, an
 - Vanilla CSS (no scss)
 - Preact Framework
 
-⚠️ Some features used in this project are not yet supported in all browsers.
+⚠️ Some features used in this project are not yet supported in all browsers. Build for the current Chrome versions.
 
 - corner-shape
 - animation-timeline: scroll()
 - clip-path: shape()
 - transition-behavior: allow-discrete
+
+## Dependencies
+- Preact https://preactjs.com/
+
+- `npm ci` - Installs dependencies for a reproducible setup
+
 
 ## 📢 Quickstart
 
