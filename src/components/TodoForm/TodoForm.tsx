@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import { Icon } from '../Icon';
 
 interface Props {
-  onAdd: (text: string, description?: string, date?: string) => void;
+  onAdd: (input: string, description?: string, date?: string) => void;
   disabled?: boolean;
   placeholder?: string;
 }
@@ -88,8 +88,7 @@ const TodoForm: FunctionComponent<
                 rows={3}
                 id="todo-description"
                 class="field__control"
-                // style={{ resize: 'vertical' }}
-              ></textarea>
+              />
             </div>
 
             <div class="field field--date">

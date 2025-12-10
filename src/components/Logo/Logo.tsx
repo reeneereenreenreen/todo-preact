@@ -15,18 +15,18 @@ const Logo: FunctionComponent = () => {
         }}
       >
         <span class="octopus__spots">
-          <span class="octopus__spot octopus__spot--1"></span>
-          <span class="octopus__spot octopus__spot--2"></span>
-          <span class="octopus__spot octopus__spot--3"></span>
-          <span class="octopus__spot octopus__spot--4"></span>
+          <span class="octopus__spot octopus__spot--1" />
+          <span class="octopus__spot octopus__spot--2" />
+          <span class="octopus__spot octopus__spot--3" />
+          <span class="octopus__spot octopus__spot--4" />
         </span>
         <span class="octopus__body">
           <span class="octopus__head">
             <span class="octopus__eyes">
-              <span class="octopus__eye octopus__eye--left"></span>
-              <span class="octopus__eye octopus__eye--right"></span>
+              <span class="octopus__eye octopus__eye--left" />
+              <span class="octopus__eye octopus__eye--right" />
             </span>
-            <span class="octopus__mouth"></span>
+            <span class="octopus__mouth" />
           </span>
           <span class="octopus__logo">
             <span class="logo__todo">
@@ -35,16 +35,16 @@ const Logo: FunctionComponent = () => {
             </span>
           </span>
           <span class="octopus__arms octopus__arms--left">
-            <span class="octopus__arm octopus__arm--left-back-1"></span>
-            <span class="octopus__arm octopus__arm--left-back-2"></span>
-            <span class="octopus__arm octopus__arm--left-front-1"></span>
-            <span class="octopus__arm octopus__arm--left-front-2"></span>
+            <span class="octopus__arm octopus__arm--left-back-1" />
+            <span class="octopus__arm octopus__arm--left-back-2" />
+            <span class="octopus__arm octopus__arm--left-front-1" />
+            <span class="octopus__arm octopus__arm--left-front-2" />
           </span>
           <span class="octopus__arms octopus__arms--right">
-            <span class="octopus__arm octopus__arm--right-back-1"></span>
-            <span class="octopus__arm octopus__arm--right-back-2"></span>
-            <span class="octopus__arm octopus__arm--right-front-1"></span>
-            <span class="octopus__arm octopus__arm--right-front-2"></span>
+            <span class="octopus__arm octopus__arm--right-back-1" />
+            <span class="octopus__arm octopus__arm--right-back-2" />
+            <span class="octopus__arm octopus__arm--right-front-1" />
+            <span class="octopus__arm octopus__arm--right-front-2" />
           </span>
         </span>
       </span>

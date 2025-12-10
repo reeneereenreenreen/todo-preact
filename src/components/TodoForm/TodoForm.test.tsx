@@ -15,7 +15,6 @@ describe('TodoForm', () => {
     const onAdd = vi.fn();
     render(<TodoForm onAdd={onAdd} />);
     const input = screen.getByPlaceholderText('Add new todo...');
-    const button = screen.getByRole('button', { name: /add to todo list/i });
 
     fireEvent.input(input, { target: { value: 'Test todo' } });
     fireEvent.submit(input.closest('form')!);

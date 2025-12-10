@@ -29,8 +29,7 @@ const TodoList: FunctionComponent = () => {
   const [profile, setProfile] = useState<string>(() => {
     return localStorage.getItem('selectedProfile') || 'default';
   });
-  const [profiles, setProfiles] =
-    useState<{ id: string; name: string }[]>(defaultProfiles);
+  const [profiles] = useState<{ id: string; name: string }[]>(defaultProfiles);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
