@@ -133,11 +133,29 @@ const TodoList: FunctionComponent = () => {
               localStorage.setItem('selectedProfile', selectedProfile);
             }}
           >
-            {profiles.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.name}
-              </option>
-            ))}
+            {profiles.map((p) => {
+              // Get open todos for each profile
+              let openCount = 0;
+              try {
+                const saved = localStorage.getItem(`todos_${p.id}`);
+                if (saved) {
+                  const parsed = JSON.parse(saved);
+                  openCount = Array.isArray(parsed)
+                    ? parsed.filter((t: any) => !t.completed).length
+                    : 0;
+                }
+              } catch {}
+              return (
+                <option key={p.id} value={p.id}>
+                  <span class="badge">
+                    <span class="sr-only">(</span>
+                    {openCount}
+                    <span class="sr-only">)</span>
+                  </span>
+                  &nbsp;{p.name}
+                </option>
+              );
+            })}
           </select>
           <Icon name="chevron-down" />
         </div>

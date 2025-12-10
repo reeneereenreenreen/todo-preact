@@ -14,13 +14,12 @@ interface Props {
 }
 
 const TodoForm: FunctionComponent<
-  Props & { descriptionPlaceholder?: string; datePlaceholder?: string }
+  Props & { descriptionPlaceholder?: string }
 > = ({
   onAdd,
   disabled,
   placeholder = 'Add new todo...',
   descriptionPlaceholder = 'My new todo ...',
-  datePlaceholder = 'Date (optional)',
 }) => {
   const [input, setInput] = useState('');
   const [description, setDescription] = useState('');
@@ -77,7 +76,7 @@ const TodoForm: FunctionComponent<
           >
             <div class="field field--textarea">
               <label for="todo-description" class="field__label">
-                Description
+                Add a description
               </label>
               <textarea
                 value={description}
@@ -94,7 +93,7 @@ const TodoForm: FunctionComponent<
 
             <div class="field field--date">
               <label for="todo-date" class="field__label">
-                Date
+                Select a deadline
               </label>
               <div class="field__body">
                 <input
@@ -103,7 +102,6 @@ const TodoForm: FunctionComponent<
                   id="todo-date"
                   class="field__control"
                   onInput={(e) => setDate((e.target as HTMLInputElement).value)}
-                  placeholder={datePlaceholder}
                   disabled={disabled}
                   ref={(input) => {
                     (window as any).todoDateInput = input;

@@ -8,7 +8,7 @@ const defaultColors = [
   '#f59e0b', // amber
   '#10b981', // emerald
   '#3b82f6', // blue
-  '#8b5cf6', // violet
+  '#ab8bf4', // violet
   '#ec4899', // pink
 ];
 
