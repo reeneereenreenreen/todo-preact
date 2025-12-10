@@ -65,7 +65,7 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background-color: var(--color-foo);
+      background-color: var(--color-background);
       border: 1px solid transparent;
       border-radius: 2rem;
       corner-shape: squircle;

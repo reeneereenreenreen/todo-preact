@@ -35,7 +35,7 @@
 
   .dialog__content {
     position: relative;
-    background-color: var(--color-foo);
+    background-color: var(--color-background);
     color: var(--color-text);
     height: 100%;
     display: flex;

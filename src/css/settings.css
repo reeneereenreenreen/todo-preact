@@ -3,11 +3,8 @@
     --color-primary: #59c832;
     --color-text: #222;
     --color-text-invert: #ccc;
-    --color-background: #ddd;
     --color-danger: #e53e3e;
-    --color-foo: #eee; /* @todo */
-    --color-bar: #f0f0f0; /* @todo */
-    --color-blubb: #fff; /* @todo */
+    --color-background: #eee;
     --color-white: #fff;
     --color-black: #000;
     --color-dark: #222;
@@ -48,10 +45,7 @@
   [data-theme='dark'] {
     --color-text: #ccc;
     --color-text-invert: #222;
-    --color-background: #1a1a1a;
-    --color-foo: #111;
-    --color-bar: #333;
-    --color-blubb: #555;
+    --color-background: #111;
     --color-descent-100: rgb(255 255 255 / 2.5%);
     --color-descent-200: rgb(255 255 255 / 5%);
     --color-descent-300: rgb(255 255 255 / 10%);
