@@ -58,7 +58,9 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
       createBurst(touch.clientX, touch.clientY);
     };
 
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchstart', handleTouchStart, {
+      passive: true,
+    });
 
     return () => {
       document.removeEventListener('click', handleClick);
@@ -66,7 +68,7 @@ const ClickBurst: FunctionComponent<ClickBurstProps> = () => {
     };
   }, []);
 
-  return <div ref={containerRef} className="burst-container" />;
+  return <span ref={containerRef} className="burst-container" />;
 };
 
 export default ClickBurst;

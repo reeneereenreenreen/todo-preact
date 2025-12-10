@@ -12,8 +12,9 @@ interface Props {
   placeholder?: string;
 }
 
-
-const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string, datePlaceholder?: string }> = ({
+const TodoForm: FunctionComponent<
+  Props & { descriptionPlaceholder?: string; datePlaceholder?: string }
+> = ({
   onAdd,
   disabled,
   placeholder = 'Add new todo...',
@@ -56,61 +57,70 @@ const TodoForm: FunctionComponent<Props & { descriptionPlaceholder?: string, dat
           />
         </div>
         <div class="todo-form__actions">
-        <Button
-          icon="dots-vertical"
-          type="button"
-          ariaLabel="Edit description and date"
-          disabled={!input.trim() || disabled}
-          variant="primary"
-          appearance="ghost"
-          onClick={() => setDialogOpen(true)}
-        >Details</Button>
-        <Dialog
-          isOpen={isDialogOpen}
-          onClose={() => setDialogOpen(false)}
-          title="Add Details"
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <label>
-              Description:
-              <textarea
-                value={description}
-                onInput={e => setDescription((e.target as HTMLTextAreaElement).value)}
-                placeholder={descriptionPlaceholder}
-                disabled={disabled}
-                rows={3}
-                style={{ resize: 'vertical' }}
-              ></textarea>
-            </label>
-            <label>
-              Date:
-              <input
-                type="date"
-                value={date}
-                onInput={e => setDate((e.target as HTMLInputElement).value)}
-                placeholder={datePlaceholder}
-                disabled={disabled}
-              />
-            </label>
-            <Button
-              icon="enter"
-              type="button"
-              ariaLabel="Save details"
-              variant="primary"
-              appearance="solid"
-              onClick={() => setDialogOpen(false)}
-            >Save</Button>
-          </div>
-        </Dialog>
-        <Button
-          icon="enter"
-          type="submit"
-          ariaLabel="Add to todo list"
-          disabled={!input.trim() || disabled}
-          variant="primary"
-          appearance="solid"
-        />
-      </div>
+          <Button
+            icon="dots-vertical"
+            type="button"
+            ariaLabel="Edit description and date"
+            disabled={!input.trim() || disabled}
+            variant="primary"
+            appearance="ghost"
+            onClick={() => setDialogOpen(true)}
+          >
+            Details
+          </Button>
+          <Dialog
+            isOpen={isDialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title="Add Details"
+            icon="edit"
+          >
+            <div
+              style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+            >
+              <label>
+                Description:
+                <textarea
+                  value={description}
+                  onInput={(e) =>
+                    setDescription((e.target as HTMLTextAreaElement).value)
+                  }
+                  placeholder={descriptionPlaceholder}
+                  disabled={disabled}
+                  rows={3}
+                  style={{ resize: 'vertical' }}
+                ></textarea>
+              </label>
+              <label>
+                Date:
+                <input
+                  type="date"
+                  value={date}
+                  onInput={(e) => setDate((e.target as HTMLInputElement).value)}
+                  placeholder={datePlaceholder}
+                  disabled={disabled}
+                />
+              </label>
+                <Button
+                icon="enter"
+                type="submit"
+                ariaLabel="Save details"
+                variant="primary"
+                appearance="solid"
+                onClick={() => setDialogOpen(false)}
+                >
+                Save
+                </Button>
+            </div>
+          </Dialog>
+          <Button
+            icon="enter"
+            type="submit"
+            ariaLabel="Add to todo list"
+            disabled={!input.trim() || disabled}
+            variant="primary"
+            appearance="solid"
+          />
+        </div>
       </div>
     </form>
   );

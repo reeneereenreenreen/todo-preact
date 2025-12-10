@@ -6,11 +6,11 @@ A simple Preact project. Includes scripts for development, production builds, an
 - Preact Framework
 
 ⚠️ Some features used in this project are not yet supported in all browsers.
+
 - corner-shape
 - animation-timeline: scroll()
 - clip-path: shape()
 - transition-behavior: allow-discrete
-
 
 ## 📢 Quickstart
 

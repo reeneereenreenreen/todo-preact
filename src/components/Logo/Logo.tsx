@@ -4,8 +4,16 @@ import './Logo.css';
 const Logo: FunctionComponent = () => {
   return (
     <h1 class="logo">
-      {/* @todo überflüssigen span entfernen */}
-      <span class="octopus">
+      <span
+        class="octopus"
+        onClick={(e) => {
+          const target = e.currentTarget as HTMLElement;
+          target.classList.add('octopus--clicked');
+          setTimeout(() => {
+            target.classList.remove('octopus--clicked');
+          }, 1000);
+        }}
+      >
         <span class="octopus__spots">
           <span class="octopus__spot octopus__spot--1"></span>
           <span class="octopus__spot octopus__spot--2"></span>

@@ -25,11 +25,11 @@ const defaultProfiles = [
 
 const TodoList: FunctionComponent = () => {
   const [profile, setProfile] = useState<string>('default');
-  const [profiles, setProfiles] = useState<{ id: string; name: string }[]>(defaultProfiles);
+  const [profiles, setProfiles] =
+    useState<{ id: string; name: string }[]>(defaultProfiles);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState('');
-
 
   // Load todos for the selected profile
   useEffect(() => {
@@ -41,7 +41,8 @@ const TodoList: FunctionComponent = () => {
         setTodos(
           parsed.map((todo: any) => ({
             ...todo,
-            description: typeof todo.description === 'string' ? todo.description : '',
+            description:
+              typeof todo.description === 'string' ? todo.description : '',
             date: typeof todo.date === 'string' ? todo.date : '',
           }))
         );
@@ -115,15 +116,19 @@ const TodoList: FunctionComponent = () => {
   return (
     <div class="todo-list">
       <div class="field field--select">
-        <label htmlFor="profile-select" class="field__label">Profile:</label>
+        <label htmlFor="profile-select" class="field__label">
+          Profile:
+        </label>
         <select
           id="profile-select"
           class="field__control"
           value={profile}
-          onChange={e => setProfile((e.target as HTMLSelectElement).value)}
+          onChange={(e) => setProfile((e.target as HTMLSelectElement).value)}
         >
-          {profiles.map(p => (
-            <option key={p.id} value={p.id}>{p.name}</option>
+          {profiles.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.name}
+            </option>
           ))}
         </select>
       </div>

@@ -56,7 +56,7 @@
 
   .todo-item__text,
   .todo-item__description,
-  .todo-item__date  {
+  .todo-item__date {
     outline: 0;
     padding: 0.25rem 0.5rem;
     border-radius: 2rem;

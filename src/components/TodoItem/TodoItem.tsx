@@ -56,27 +56,33 @@ const TodoItem: FunctionComponent<Props> = ({
         </label>
       </div>
       <div class="todo-item__content">
-        {todo.date && (() => {
-          const today = new Date();
-          let dateClass = '';
-          try {
-            const todoDate = new Date(todo.date);
-            todoDate.setHours(0,0,0,0);
-            today.setHours(0,0,0,0);
-            const diff = (todoDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
-            if (diff < 0) {
-              dateClass = 'todo-item__date--past';
-            } else if (diff <= 2) {
-              dateClass = 'todo-item__date--soon';
-            }
-          } catch {}
-          return <span class={`todo-item__date ${dateClass}`}>{todo.date}</span>;
-        })()}
+        {todo.date &&
+          (() => {
+            const today = new Date();
+            let dateClass = '';
+            try {
+              const todoDate = new Date(todo.date);
+              todoDate.setHours(0, 0, 0, 0);
+              today.setHours(0, 0, 0, 0);
+              const diff =
+                (todoDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
+              if (diff < 0) {
+                dateClass = 'todo-item__date--past';
+              } else if (diff <= 2) {
+                dateClass = 'todo-item__date--soon';
+              }
+            } catch {}
+            return (
+              <span class={`todo-item__date ${dateClass}`}>{todo.date}</span>
+            );
+          })()}
         <span
           class={`todo-item__text ${todo.completed ? 'completed' : ''}`}
           contentEditable
           autoFocus={isEditing}
-          onBlur={(e: any) => onUpdate(e.target.innerText, todo.description, todo.date)}
+          onBlur={(e: any) =>
+            onUpdate(e.target.innerText, todo.description, todo.date)
+          }
           onKeyDown={(e: any) => {
             if (e.key === 'Enter') {
               e.preventDefault();
@@ -94,7 +100,9 @@ const TodoItem: FunctionComponent<Props> = ({
           <span
             class="todo-item__description"
             contentEditable
-            onBlur={(e: any) => onUpdate(todo.text, e.target.innerText, todo.date)}
+            onBlur={(e: any) =>
+              onUpdate(todo.text, e.target.innerText, todo.date)
+            }
             onKeyDown={(e: any) => {
               if (e.key === 'Enter') {
                 e.preventDefault();
