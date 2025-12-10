@@ -1,0 +1,71 @@
+@layer me.layout {
+  .field--radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .field__input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+
+      &:checked {
+        + .field__label {
+          background-color: color-mix(
+            in srgb,
+            var(--color-primary) 15%,
+            var(--color-background) 20%
+          );
+          border-color: var(--color-primary);
+        }
+      }
+
+      &:focus-visible {
+        + .field__label {
+          box-shadow:
+            0 0 0 1px var(--color-primary),
+            0 0 0 0.25rem
+              color-mix(
+                in srgb,
+                var(--color-primary) 30%,
+                var(--color-background) 80%
+              );
+          border-color: var(--color-primary);
+        }
+      }
+    }
+
+    /* stylelint-disable no-descending-specificity */
+    .field__label {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: color-mix(
+        in srgb,
+        var(--color-primary) 5%,
+        var(--color-background) 20%
+      );
+      border: 1px solid transparent;
+      border-radius: 2rem;
+      corner-shape: squircle;
+      cursor: pointer;
+      transition: var(--transition-fast);
+
+      &:hover {
+        /* color: var(--color-dark); */
+
+        /* background-color: var(--color-primary); */
+        background-color: color-mix(
+          in srgb,
+          var(--color-primary) 30%,
+          var(--color-background) 70%
+        );
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    /* stylelint-enable no-descending-specificity */
+  }
+}

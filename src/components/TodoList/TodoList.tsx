@@ -1,13 +1,14 @@
 import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-import TodoForm from '../TodoForm/TodoForm';
-import TodoSection from '../TodoSection/TodoSection';
+import { TodoForm } from '../TodoForm';
+import { TodoSection } from '../TodoSection';
 import './TodoList.css';
 import { Dialog } from '../Dialog';
-import Button from '../Button/Button';
+import { Button } from '../Button';
 import { ColorPicker } from '../ColorPicker';
 import { DarkmodeToggle } from '../DarkmodeToggle';
 import { MotionSwitch } from '../MotionSwitch';
+import { Icon } from '../Icon';
 
 interface Todo {
   id: string;
@@ -24,7 +25,10 @@ const defaultProfiles = [
 ];
 
 const TodoList: FunctionComponent = () => {
-  const [profile, setProfile] = useState<string>('default');
+  // Load selected profile from localStorage if available
+  const [profile, setProfile] = useState<string>(() => {
+    return localStorage.getItem('selectedProfile') || 'default';
+  });
   const [profiles, setProfiles] =
     useState<{ id: string; name: string }[]>(defaultProfiles);
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -115,24 +119,30 @@ const TodoList: FunctionComponent = () => {
 
   return (
     <div class="todo-list">
-      <div class="field field--select">
-        <label htmlFor="profile-select" class="field__label">
-          Profile:
-        </label>
-        <select
-          id="profile-select"
-          class="field__control"
-          value={profile}
-          onChange={(e) => setProfile((e.target as HTMLSelectElement).value)}
-        >
-          {profiles.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div class="todo-list__content">
+      <div class="todo-list__header">
+        <div class="field field--select">
+          <label htmlFor="profile-select" class="field__label sr-only">
+            Profile:
+          </label>
+          <select
+            id="profile-select"
+            class="field__control"
+            value={profile}
+            onChange={(e) => {
+              const selectedProfile = (e.target as HTMLSelectElement).value;
+              setProfile(selectedProfile);
+              localStorage.setItem('selectedProfile', selectedProfile);
+            }}
+          >
+            {profiles.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+          <Icon name="chevron-down" />
+        </div>
+
         <h2
           class="todo-list__title"
           contentEditable
@@ -155,7 +165,8 @@ const TodoList: FunctionComponent = () => {
         >
           {title}
         </h2>
-
+      </div>
+      <div class="todo-list__content">
         <TodoForm
           onAdd={addTodo}
           disabled={!!editingId}

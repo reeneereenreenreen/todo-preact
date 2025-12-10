@@ -15,7 +15,7 @@
 
     &:hover {
       color: var(--button-hover-color, var(--color-text));
-      background-color: var(--button-hover-bg, #e2e8f0);
+      background-color: var(--button-hover-bg);
     }
 
     &:disabled {
@@ -52,6 +52,12 @@
   .button--primary {
     --button-hover-color: var(--color-black);
     --button-hover-bg: var(--color-primary);
+
+    --button-hover-bg: color-mix(
+      in srgb,
+      var(--color-primary) 70%,
+      var(--color-background) 30%
+    );
   }
 
   /* .button--secondary {
@@ -60,7 +66,11 @@
     } */
 
   .button--danger {
-    --button-hover-bg: var(--color-danger);
+    --button-hover-bg: color-mix(
+      in srgb,
+      var(--color-danger) 70%,
+      var(--color-background) 30%
+    );
 
     &.button--solid {
       background-color: var(--color-danger);

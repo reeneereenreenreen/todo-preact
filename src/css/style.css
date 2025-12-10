@@ -18,6 +18,7 @@
     text-size-adjust: 100%;
     caret-color: var(--color-primary);
     overflow-y: scroll;
+    color-scheme: var(--color-scheme);
 
     /* &::search-text {
 			background-color: rgba(0, 190, 57, 0.4);

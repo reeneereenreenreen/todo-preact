@@ -1,0 +1,51 @@
+@layer me.layout {
+  .field--date {
+    display: flex;
+    flex-direction: column;
+
+    .field__control {
+      padding: 1rem 0.75rem;
+      border-radius: 2rem;
+      corner-shape: squircle;
+      background-color: var(--color-ascent-600);
+      border: 1px solid var(--color-descent-500);
+      outline: 0;
+      -moz-appearance: textfield;
+      transition: var(--transition-fast);
+
+      &:hover {
+        border-color: var(--color-primary);
+      }
+
+      &:focus {
+        border-color: var(--color-primary);
+        box-shadow: var(--shadow-focus);
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      &::-moz-calendar-picker-indicator {
+        display: none;
+      }
+    }
+
+    .field__label {
+      padding-block: 0.5rem;
+      font-size: var(--font-size-base);
+    }
+
+    .field__body {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+    }
+  }
+}

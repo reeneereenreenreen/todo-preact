@@ -49,9 +49,10 @@
 
   .todo-item__content {
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    /* align-items: center; */
+    /* gap: 0.25rem; */
   }
 
   .todo-item__text,
@@ -69,8 +70,9 @@
     }
   }
 
-  /* .todo-item__text {
-  } */
+  .todo-item__text {
+    margin-bottom: -0.375rem;
+  }
 
   .todo-item__description {
     opacity: 0.75;
@@ -78,7 +80,9 @@
   }
 
   .todo-item__date {
+    margin-top: 0.5rem;
     margin-left: 0.375rem;
+    padding-block: 0.125rem;
     font-size: var(--font-size-md);
     border: 1px solid currentColor;
   }

@@ -11,7 +11,7 @@ const Logo: FunctionComponent = () => {
           target.classList.add('octopus--clicked');
           setTimeout(() => {
             target.classList.remove('octopus--clicked');
-          }, 1000);
+          }, 600);
         }}
       >
         <span class="octopus__spots">

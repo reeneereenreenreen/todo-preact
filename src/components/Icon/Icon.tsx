@@ -71,10 +71,10 @@ const Icon: FunctionComponent<IconProps> = ({ name, size = 'md' }) => {
         stroke="currentColor"
         stroke-width="2"
       >
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19.5 3 21l1.5-4L16.5 3.5z" />
+        <path d="M13 7a2.121 2.121 0 0 1 3 3l-7 7-4 1 1-4 7-7z" />
       </svg>
     ),
+
     sun: (
       <svg
         viewBox="0 0 24 24"
@@ -159,6 +159,22 @@ const Icon: FunctionComponent<IconProps> = ({ name, size = 'md' }) => {
       >
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    ),
+    datepicker: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="3" y1="11" x2="21" y2="11" />
+        <rect x="7" y="15" width="2" height="2" />
+        <rect x="11" y="15" width="2" height="2" />
+        <rect x="15" y="15" width="2" height="2" />
       </svg>
     ),
   };

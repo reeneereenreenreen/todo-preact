@@ -6,6 +6,7 @@
     --color-danger: #e53e3e;
     --color-warning: #d69e2e;
     --color-background: #eee;
+    --color-background-accent: #eee;
     --color-white: #fff;
     --color-black: #000;
     --color-dark: #222;
@@ -18,7 +19,16 @@
     --color-descent-700: rgb(0 0 0 / 30%);
     --color-descent-800: rgb(0 0 0 / 35%);
     --color-descent-900: rgb(0 0 0 / 40%);
-    --header-height: 9rem; /* 5.25rem */
+    --color-ascent-100: rgb(255 255 255 / 2.5%);
+    --color-ascent-200: rgb(255 255 255 / 5%);
+    --color-ascent-300: rgb(255 255 255 / 10%);
+    --color-ascent-400: rgb(255 255 255 / 15%);
+    --color-ascent-500: rgb(255 255 255 / 20%);
+    --color-ascent-600: rgb(255 255 255 / 25%);
+    --color-ascent-700: rgb(255 255 255 / 30%);
+    --color-ascent-800: rgb(255 255 255 / 35%);
+    --color-ascent-900: rgb(255 255 255 / 40%);
+    --header-height: 8.5rem; /* 5.25rem */
     --todo-list-width: 60rem;
     --transition-slow: calc(var(--transition-medium) * 1.5);
     --transition-medium: 0.3s;
@@ -41,12 +51,15 @@
           var(--color-primary) 30%,
           var(--color-background) 80%
         );
+
+    --color-scheme: light;
   }
 
   [data-theme='dark'] {
     --color-text: #ccc;
     --color-text-invert: #222;
     --color-background: #111;
+    --color-background-accent: #252525;
     --color-descent-100: rgb(255 255 255 / 2.5%);
     --color-descent-200: rgb(255 255 255 / 5%);
     --color-descent-300: rgb(255 255 255 / 10%);
@@ -56,5 +69,17 @@
     --color-descent-700: rgb(255 255 255 / 30%);
     --color-descent-800: rgb(255 255 255 / 35%);
     --color-descent-900: rgb(255 255 255 / 40%);
+
+    --color-ascent-100: rgb(0 0 0 / 2.5%);
+    --color-ascent-200: rgb(0 0 0 / 5%);
+    --color-ascent-300: rgb(0 0 0 / 10%);
+    --color-ascent-400: rgb(0 0 0 / 15%);
+    --color-ascent-500: rgb(0 0 0 / 20%);
+    --color-ascent-600: rgb(0 0 0 / 25%);
+    --color-ascent-700: rgb(0 0 0 / 30%);
+    --color-ascent-800: rgb(0 0 0 / 35%);
+    --color-ascent-900: rgb(0 0 0 / 40%);
+
+    --color-scheme: dark;
   }
 }

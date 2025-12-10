@@ -15,10 +15,20 @@
     }
   }
 
-  .todo-list__title {
+  .todo-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     z-index: 30;
-    margin: auto;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .todo-list__title {
+    position: relative;
+    /* z-index: 30; */
+    /* margin: auto; */
     font-size: var(--font-size-lg);
     text-align: center;
     padding: 0.5rem 1.5rem;

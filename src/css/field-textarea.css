@@ -1,0 +1,31 @@
+@layer me.layout {
+  .field--textarea {
+    display: flex;
+    flex-direction: column;
+
+    .field__control {
+      padding: 0.75rem;
+      resize: vertical;
+      background-color: var(--color-ascent-600);
+      border-radius: 2rem;
+      corner-shape: squircle;
+      border: 1px solid var(--color-descent-500);
+      outline: 0;
+      transition: var(--transition-fast);
+
+      &:hover {
+        border-color: var(--color-primary);
+      }
+
+      &:focus {
+        border-color: var(--color-primary);
+        box-shadow: var(--shadow-focus);
+      }
+    }
+
+    .field__label {
+      padding-block: 0.5rem;
+      font-size: var(--font-size-base);
+    }
+  }
+}

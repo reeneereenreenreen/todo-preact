@@ -18,7 +18,7 @@ const TodoForm: FunctionComponent<
   onAdd,
   disabled,
   placeholder = 'Add new todo...',
-  descriptionPlaceholder = 'Description (optional)',
+  descriptionPlaceholder = 'My new todo ...',
   datePlaceholder = 'Date (optional)',
 }) => {
   const [input, setInput] = useState('');
@@ -71,46 +71,77 @@ const TodoForm: FunctionComponent<
           <Dialog
             isOpen={isDialogOpen}
             onClose={() => setDialogOpen(false)}
-            title="Add Details"
+            title="Optional Details"
             icon="edit"
           >
-            <div
-              style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
-            >
-              <label>
-                Description:
-                <textarea
-                  value={description}
-                  onInput={(e) =>
-                    setDescription((e.target as HTMLTextAreaElement).value)
-                  }
-                  placeholder={descriptionPlaceholder}
-                  disabled={disabled}
-                  rows={3}
-                  style={{ resize: 'vertical' }}
-                ></textarea>
+            <div class="field field--textarea">
+              <label for="todo-description" class="field__label">
+                Description
               </label>
-              <label>
-                Date:
+              <textarea
+                value={description}
+                onInput={(e) =>
+                  setDescription((e.target as HTMLTextAreaElement).value)
+                }
+                placeholder={descriptionPlaceholder}
+                disabled={disabled}
+                rows={3}
+                id="todo-description"
+                class="field__control"
+                // style={{ resize: 'vertical' }}
+              ></textarea>
+            </div>
+
+            <div class="field field--date">
+              <label for="todo-date" class="field__label">
+                Date
+              </label>
+              <div class="field__body">
                 <input
                   type="date"
                   value={date}
+                  id="todo-date"
+                  class="field__control"
                   onInput={(e) => setDate((e.target as HTMLInputElement).value)}
                   placeholder={datePlaceholder}
                   disabled={disabled}
+                  ref={(input) => {
+                    (window as any).todoDateInput = input;
+                  }}
                 />
-              </label>
                 <Button
-                icon="enter"
-                type="submit"
-                ariaLabel="Save details"
-                variant="primary"
-                appearance="solid"
-                onClick={() => setDialogOpen(false)}
+                  icon="datepicker"
+                  type="button"
+                  ariaLabel="Open date picker"
+                  variant="primary"
+                  appearance="solid"
+                  onClick={() => {
+                    const input = (window as any)
+                      .todoDateInput as HTMLInputElement | null;
+                    if (input) {
+                      if (typeof input.showPicker === 'function') {
+                        input.showPicker();
+                      } else {
+                        input.focus();
+                      }
+                    }
+                  }}
                 >
-                Save
+                  Select date
                 </Button>
+              </div>
             </div>
+
+            <Button
+              icon="enter"
+              type="submit"
+              label="Add to todo list"
+              variant="primary"
+              appearance="solid"
+              onClick={() => setDialogOpen(false)}
+            >
+              Save
+            </Button>
           </Dialog>
           <Button
             icon="enter"
