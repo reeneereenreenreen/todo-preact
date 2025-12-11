@@ -147,11 +147,6 @@ const TodoList: FunctionComponent = () => {
         <h2
           class="todo-list__title"
           contentEditable
-          onInput={(e) => {
-            const value = (e.target as HTMLElement).innerText;
-            setTitle(value);
-            localStorage.setItem(`todoListTitle_${profile}`, value);
-          }}
           onBlur={(e) => {
             const value = (e.target as HTMLElement).innerText;
             setTitle(value);
