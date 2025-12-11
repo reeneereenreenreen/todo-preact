@@ -1,9 +1,7 @@
 @layer me.component {
   .header {
     padding-bottom: 0;
-    margin-top: calc(50vh - 12rem);
-
-    /* margin-top: 15rem; */
+    margin-top: calc(50vh - 16rem);
     margin-bottom: 0;
     z-index: 20;
     display: flex;

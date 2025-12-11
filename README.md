@@ -17,6 +17,8 @@ A simple Preact project. Includes scripts for development, production builds, an
 
 - `npm ci` - Installs dependencies for a reproducible setup
 
+## PWA (Progressiv Web App)
+- Using the *vite-plugin-pwa* package to create PWA functionality
 
 ## 📢 Quickstart
 
