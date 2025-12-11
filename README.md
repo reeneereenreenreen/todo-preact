@@ -13,22 +13,29 @@ A simple Preact project. Includes scripts for development, production builds, an
 - transition-behavior: allow-discrete
 
 ## Dependencies
+
 - Preact https://preactjs.com/
 
 - `npm ci` - Installs dependencies for a reproducible setup
 
 ## PWA (Progressiv Web App)
-- Using the *vite-plugin-pwa* package to create PWA functionality
+
+- Using the _vite-plugin-pwa_ package to create PWA functionality
 
 ## 📢 Quickstart
 
 ### Run
 
-- `npm run preview` - Builds for production, emitting to `dist/`
+- `npm run build` - Builds the project for production, optimizing assets and output.
+- `npm run preview` - Serves the optimized production build locally for testing and preview.
 
 ### Test
 
-- `npm run test` - Run once
+- `npm run test:coverage` - Run once
+
+### Lint
+
+- `npm run lint` - Run all linter
 
 ## Run: Getting Started
 
